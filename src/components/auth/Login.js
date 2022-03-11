@@ -19,7 +19,7 @@ export const Login = () => {
         existingUserCheck()
             .then(exists => {
                 if (exists) {
-                    localStorage.setItem("kandy_customer", exists.id)
+                    localStorage.setItem("gourdgeous_user", exists.id)
                     history.push("/")
                 } else {
                     existDialog.current.showModal()
@@ -36,7 +36,7 @@ export const Login = () => {
 
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Kandy Korner</h1>
+                    <h1>Gourdgeous</h1>
                     <h2>Please sign in</h2>
                     <fieldset>
                         <label htmlFor="inputEmail"> Email address </label>

@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom"
 import "./Login.css"
 
 export const Register = (props) => {
-    const [customer, setUser] = useState({})
+    const [user, setUser] = useState({})
     const conflictDialog = useRef()
 
     const history = useHistory()
@@ -18,17 +18,17 @@ export const Register = (props) => {
         existingUserCheck()
             .then((userExists) => {
                 if (!userExists) {
-                    fetch("http://localhost:8088/customers", {
+                    fetch("http://localhost:8088/users", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json"
                         },
-                        body: JSON.stringify(customer)
+                        body: JSON.stringify(user)
                     })
                         .then(res => res.json())
                         .then(createdUser => {
                             if (createdUser.hasOwnProperty("id")) {
-                                localStorage.setItem("kandy_customer", createdUser.id)
+                                localStorage.setItem("gourdgeous_user", createdUser.id)
                                 history.push("/")
                             }
                         })
@@ -40,7 +40,7 @@ export const Register = (props) => {
     }
 
     const updateUser = (evt) => {
-        const copy = {...customer}
+        const copy = {...user}
         copy[evt.target.id] = evt.target.value
         setUser(copy)
     }
@@ -54,23 +54,13 @@ export const Register = (props) => {
             </dialog>
 
             <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Please Register for Kandy Korner</h1>
-                <fieldset>
-                    <label htmlFor="name"> Full Name </label>
-                    <input onChange={updateUser}
-                           type="text" id="name" className="form-control"
-                           placeholder="Enter your name" required autoFocus />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="address"> Address </label>
-                    <input onChange={updateUser} type="text" id="address" className="form-control" placeholder="Street address" required />
-                </fieldset>
+                <h1 className="h3 mb-3 font-weight-normal">Please Register for Gourdgeous</h1>
                 <fieldset>
                     <label htmlFor="email"> Email address </label>
                     <input onChange={updateUser} type="email" id="email" className="form-control" placeholder="Email address" required />
                 </fieldset>
                 <fieldset>
-                    <button type="submit"> Register </button>
+                    <button onClick={history.push("/avatars/create")}type="submit"> Register </button>
                 </fieldset>
             </form>
         </main>

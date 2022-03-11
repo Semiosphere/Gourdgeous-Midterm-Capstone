@@ -1,6 +1,5 @@
 import React from "react"
 import { Route, Redirect } from "react-router-dom";
-import { NavBar } from "./nav/NavBar"
 import { ApplicationViews } from "./ApplicationViews";
 import { Login } from "./auth/Login";
 import { Register } from "./auth/Register";
@@ -9,10 +8,9 @@ export const Gourdgeous = () => (
     <>
     <Route
       render={() => {
-        if (localStorage.getItem("gourdgeous_customer")) {
+        if (localStorage.getItem("gourdgeous_user")) {
           return (
             <>
-              <NavBar />
               <ApplicationViews />
             </>
           );

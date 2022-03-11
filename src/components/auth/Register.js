@@ -9,7 +9,7 @@ export const Register = (props) => {
     const history = useHistory()
 
     const existingUserCheck = () => {
-        return fetch(`http://localhost:8088/customers?email=${user.email}`)
+        return fetch(`http://localhost:8088/users?email=${user.email}`)
             .then(res => res.json())
             .then(user => !!user.length)
     }
@@ -29,7 +29,7 @@ export const Register = (props) => {
                         .then(createdUser => {
                             if (createdUser.hasOwnProperty("id")) {
                                 localStorage.setItem("gourdgeous_user", createdUser.id)
-                                history.push("/")
+                                history.push("/avatars/create")
                             }
                         })
                 }
@@ -60,7 +60,7 @@ export const Register = (props) => {
                     <input onChange={updateUser} type="email" id="email" className="form-control" placeholder="Email address" required />
                 </fieldset>
                 <fieldset>
-                    <button onClick={history.push("/avatars/create")}type="submit"> Register </button>
+                    <button onClick={(e) => handleRegister(e)}type="submit"> Register </button>
                 </fieldset>
             </form>
         </main>

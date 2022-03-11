@@ -1,3 +1,5 @@
+//This module is responsible for the functionality of the main Avatar Builder page
+
 import React, { useEffect, useState } from "react"
 import { useHistory } from "react-router-dom"
 
@@ -100,97 +102,126 @@ export const AvatarForm = () => {
 
             
         
-            <form className="employeeForm">
-                <h2 className="employeeForm__title">Hire New Employee</h2>
-                <button onClick={() => history.push("/employees")} className="btn btn-primary">
-                    Employee List
-                </button>
+            <form className="avatarForm">
                 <fieldset>
                     <div className="form-group">
-                        <label htmlFor="description">New Hire Name: </label>
-                        <input
-                            onChange={
-                                (evt) => {
-                                    const copy = {...employee}
-                                    copy.name = evt.target.value
-                                    updateEmployee(copy)
-                                }
-                            }
-                            required autoFocus
-                            type="text"
-                            className="form-control"
-                            placeholder="Fill in new hire's full name"
-                             />
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <div className="form-group">
-                        <label htmlFor="location">Location: </label>
+                        <label htmlFor="hats">Hats </label>
                         <select
                             required autoFocus
                             type="text"
                             className="form-control"
                             onChange={
                                 (evt) => {
-                                    const copy = {...employee}
-                                    copy.locationId = evt.target.value
-                                    updateEmployee(copy)
+                                    const copy = {...avatar}
+                                    copy.hatId = evt.target.value
+                                    setAvatar(copy)
                                 }
                             }
-                            ><option value="0">Pick a location</option>
-                            {locations.map(location => <option value={location.id}>{location.address}</option>)}
+                            ><option value="0">Select a hat</option>
+                            {hats.map(hat => <option value={hat.id}>{hat.name}</option>)}
                             </select>
                     </div>
                 </fieldset>
+
                 <fieldset>
                     <div className="form-group">
-                        <label htmlFor="name">Manager: </label>
-                        <input
-                        onChange={
-                            (evt) => {
-                                const copy = {...employee}
-                                copy.manager = evt.target.checked
-                                updateEmployee(copy)
-                            }
-                        }
-                            type="checkbox" />
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <div className="form-group">
-                        <label htmlFor="description">Hourly Pay: </label>
-                        <input
-                            onChange={
-                                (evt) => {
-                                    const copy = {...employee}
-                                    copy.hourlyWage = evt.target.value
-                                    updateEmployee(copy)
-                                }
-                            }
+                        <label htmlFor="eyes">Eyes </label>
+                        <select
                             required autoFocus
                             type="text"
                             className="form-control"
-                            placeholder="Fill in new hire's hourly rate"
-                             />
+                            onChange={
+                                (evt) => {
+                                    const copy = {...avatar}
+                                    copy.eyeId = evt.target.value
+                                    setAvatar(copy)
+                                }
+                            }
+                            ><option value="0">Select eyes</option>
+                            {eyes.map(eye => <option value={eye.id}>{eye.name}</option>)}
+                            </select>
                     </div>
                 </fieldset>
+
                 <fieldset>
                     <div className="form-group">
-                        <label htmlFor="name">Full-time: </label>
-                        <input
-                        onChange={
-                            (evt) => {
-                                const copy = {...employee}
-                                copy.fullTime = evt.target.checked
-                                updateEmployee(copy)
+                        <label htmlFor="mouths">Mouths </label>
+                        <select
+                            required autoFocus
+                            type="text"
+                            className="form-control"
+                            onChange={
+                                (evt) => {
+                                    const copy = {...avatar}
+                                    copy.mouthId = evt.target.value
+                                    setAvatar(copy)
+                                }
                             }
-                        }
-                            type="checkbox" />
+                            ><option value="0">Select a mouth</option>
+                            {mouths.map(mouth => <option value={mouth.id}>{mouth.name}</option>)}
+                            </select>
                     </div>
                 </fieldset>
-                <button onClick={submitEmployee} className="btn btn-primary">
-                    Add Employee to System
-                </button>
+
+                <fieldset>
+                    <div className="form-group">
+                        <label htmlFor="shirts">Shirts </label>
+                        <select
+                            required autoFocus
+                            type="text"
+                            className="form-control"
+                            onChange={
+                                (evt) => {
+                                    const copy = {...avatar}
+                                    copy.shirtId = evt.target.value
+                                    setAvatar(copy)
+                                }
+                            }
+                            ><option value="0">Select a shirt</option>
+                            {shirts.map(shirt => <option value={shirt.id}>{shirt.name}</option>)}
+                            </select>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <div className="form-group">
+                        <label htmlFor="bodies">Bodies </label>
+                        <select
+                            required autoFocus
+                            type="text"
+                            className="form-control"
+                            onChange={
+                                (evt) => {
+                                    const copy = {...avatar}
+                                    copy.bodyId = evt.target.value
+                                    setAvatar(copy)
+                                }
+                            }
+                            ><option value="0">Select a body</option>
+                            {bodies.map(body => <option value={body.id}>{body.name}</option>)}
+                            </select>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <div className="form-group">
+                        <label htmlFor="backgrounds">Backgrounds </label>
+                        <select
+                            required autoFocus
+                            type="text"
+                            className="form-control"
+                            onChange={
+                                (evt) => {
+                                    const copy = {...avatar}
+                                    copy.backgroundId = evt.target.value
+                                    setAvatar(copy)
+                                }
+                            }
+                            ><option value="0">Select a background</option>
+                            {backgrounds.map(background => <option value={background.id}>{background.name}</option>)}
+                            </select>
+                    </div>
+                </fieldset>
             </form>
         
     )

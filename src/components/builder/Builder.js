@@ -2,82 +2,83 @@
 
 import React, { useEffect, useState } from "react"
 import { useHistory } from "react-router-dom"
+import "./Builder.css"
 
 export const AvatarForm = () => {
 
     //retrieving hats from database
-    const [hats, setHat] = useState([])
+    const [hats, setHats] = useState([])
     useEffect( 
         () => {
             fetch("http://localhost:8088/hats")
                 .then(res => res.json())
                     .then((hatArray) => {
-                        setHat(hatArray)
+                        setHats(hatArray)
                     })
         },
         []
     )
 
     //retrieving eyes from database
-    const [eyes, setEye] = useState([])
+    const [eyes, setEyes] = useState([])
     useEffect( 
         () => {
             fetch("http://localhost:8088/eyes")
                 .then(res => res.json())
                     .then((eyeArray) => {
-                        setEye(eyeArray)
+                        setEyes(eyeArray)
                     })
         },
         []
     )
 
     //retrieving mouths from database
-    const [mouths, setMouth] = useState([])
+    const [mouths, setMouths] = useState([])
     useEffect( 
         () => {
             fetch("http://localhost:8088/mouths")
                 .then(res => res.json())
                     .then((mouthArray) => {
-                        setMouth(mouthArray)
+                        setMouths(mouthArray)
                     })
         },
         []
     )
 
     //retrieving shirts from database
-    const [shirts, setShirt] = useState([])
+    const [shirts, setShirts] = useState([])
     useEffect( 
         () => {
             fetch("http://localhost:8088/shirts")
                 .then(res => res.json())
                     .then((shirtArray) => {
-                        setShirt(shirtArray)
+                        setShirts(shirtArray)
                     })
         },
         []
     )
 
     //retrieving bodies from database
-    const [bodies, setBody] = useState([])
+    const [bodies, setBodies] = useState([])
     useEffect( 
         () => {
             fetch("http://localhost:8088/bodies")
                 .then(res => res.json())
                     .then((bodyArray) => {
-                        setBody(bodyArray)
+                        setBodies(bodyArray)
                     })
         },
         []
     )
 
     //retrieving backgrounds from database
-    const [backgrounds, setBackground] = useState([])
+    const [backgrounds, setBackgrounds] = useState([])
     useEffect( 
         () => {
             fetch("http://localhost:8088/backgrounds")
                 .then(res => res.json())
                     .then((backgroundArray) => {
-                        setBackground(backgroundArray)
+                        setBackgrounds(backgroundArray)
                     })
         },
         []
@@ -96,11 +97,41 @@ export const AvatarForm = () => {
 
     const history = useHistory()
 
-    
+    const getHat = () => {
+            const hat = hats.find((hat) => hat.id === avatar.hatId)
+            return hat
+    }
+    const getEye = () => {
+        const eye = eyes.find((eye) => eye.id === avatar.eyeId)
+        return eye
+    }
+    const getBody = () => {
+        const body = bodies.find((body) => body.id === avatar.bodyId)
+        return body
+    }
+    const getMouth = () => {
+        const mouth = mouths.find((mouth) => mouth.id === avatar.mouthId)
+        return mouth
+    }
+    const getShirt = () => {
+        const shirt = shirts.find((shirt) => shirt.id === avatar.shirtId)
+        return shirt
+    }
+    const getBackground = () => {
+        const background = backgrounds.find((background) => background.id === avatar.backgroundId)
+        return background
+    }
 
     return (
-
-            
+        <>
+        <div class="images">
+            {getHat() && <img id="img1" src={getHat().image}></img>}
+            {getEye() && <img id="img2" src={getEye().image}></img>}
+            {getMouth() && <img id="img3" src={getMouth().image}></img>}
+            {getShirt() && <img id="img4" src={getShirt().image}></img>}
+            {getBody() && <img id="img5" src={getBody().image}></img>}
+            {getBackground() && <img id="img6" src={getBackground().image}></img>}
+        </div>
         
             <form className="avatarForm">
                 <fieldset>
@@ -113,7 +144,7 @@ export const AvatarForm = () => {
                             onChange={
                                 (evt) => {
                                     const copy = {...avatar}
-                                    copy.hatId = evt.target.value
+                                    copy.hatId = parseInt(evt.target.value)
                                     setAvatar(copy)
                                 }
                             }
@@ -133,7 +164,7 @@ export const AvatarForm = () => {
                             onChange={
                                 (evt) => {
                                     const copy = {...avatar}
-                                    copy.eyeId = evt.target.value
+                                    copy.eyeId = parseInt(evt.target.value)
                                     setAvatar(copy)
                                 }
                             }
@@ -153,7 +184,7 @@ export const AvatarForm = () => {
                             onChange={
                                 (evt) => {
                                     const copy = {...avatar}
-                                    copy.mouthId = evt.target.value
+                                    copy.mouthId = parseInt(evt.target.value)
                                     setAvatar(copy)
                                 }
                             }
@@ -173,7 +204,7 @@ export const AvatarForm = () => {
                             onChange={
                                 (evt) => {
                                     const copy = {...avatar}
-                                    copy.shirtId = evt.target.value
+                                    copy.shirtId = parseInt(evt.target.value)
                                     setAvatar(copy)
                                 }
                             }
@@ -193,7 +224,7 @@ export const AvatarForm = () => {
                             onChange={
                                 (evt) => {
                                     const copy = {...avatar}
-                                    copy.bodyId = evt.target.value
+                                    copy.bodyId = parseInt(evt.target.value)
                                     setAvatar(copy)
                                 }
                             }
@@ -213,7 +244,7 @@ export const AvatarForm = () => {
                             onChange={
                                 (evt) => {
                                     const copy = {...avatar}
-                                    copy.backgroundId = evt.target.value
+                                    copy.backgroundId = parseInt(evt.target.value)
                                     setAvatar(copy)
                                 }
                             }
@@ -223,6 +254,7 @@ export const AvatarForm = () => {
                     </div>
                 </fieldset>
             </form>
+        </>
         
     )
 }

@@ -87,11 +87,11 @@ export const AvatarForm = () => {
     const [avatar, setAvatar] = useState({
         //[var to hold state, var to change state]
         name: "",
-        hatId: 1,
-        eyeId: 1,
-        mouthId: 1,
-        shirtId: 1,
-        bodyId: 1,
+        hatId: 0,
+        eyeId: 0,
+        mouthId: 0,
+        shirtId: 0,
+        bodyId: 0,
         backgroundId: 1
     })
 
@@ -122,6 +122,33 @@ export const AvatarForm = () => {
         return background
     }
 
+    const saveAvatar = (evt) => {
+        const newAvatar = {
+            userId: parseInt(localStorage.getItem("gourdgeous_user")),
+            name: avatar.name,
+            hat: avatar.hatId,
+            eyes: avatar.eyeId,
+            mouth: avatar.mouthId,
+            shirt: avatar.shirtId,
+            body: avatar.bodyId,
+            background: avatar.backgroundId
+
+        }
+        const fetchOption = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newAvatar)
+        }
+
+        return fetch("http://localhost:8088/avatars", fetchOption)
+                
+            
+    }
+
+
+
     return (
         <>
         <div class="images">
@@ -134,6 +161,25 @@ export const AvatarForm = () => {
         </div>
         
             <form className="avatarForm">
+            <fieldset>
+                    <div className="form-group">
+                        <label htmlFor="description">Avatar Name </label>
+                        <input
+                            onChange={
+                                (evt) => {
+                                    const copy = {...avatar}
+                                    copy.name = evt.target.value
+                                    setAvatar(copy)
+                                }
+                            }
+                            required autoFocus
+                            type="text"
+                            className="form-control"
+                            placeholder="Name your avatar"
+                             />
+                    </div>
+                </fieldset>
+
                 <fieldset>
                     <div className="form-group">
                         <label htmlFor="hats">Hats </label>
@@ -253,6 +299,9 @@ export const AvatarForm = () => {
                             </select>
                     </div>
                 </fieldset>
+                <button onClick={saveAvatar} className="btn btn-primary">
+                    Save Avatar
+                </button>
             </form>
         </>
         

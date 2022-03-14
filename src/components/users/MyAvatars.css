@@ -1,0 +1,50 @@
+.pageGrid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.images {
+    display: grid;
+}
+img {
+    max-width: 50%;
+    grid-area: 1 / 1 / 1 / 1;
+    margin: 20px;
+}
+
+#img1 {
+    z-index: 6;
+    max-width: 300px;
+}
+
+#img2 {
+    z-index: 5;
+    max-width: 300px;
+}
+
+#img3 {
+    z-index: 4;
+    max-width: 300px;
+}
+
+#img4 {
+    z-index: 3;
+    max-width: 300px;
+}
+
+#img5 {
+    z-index: 2;
+    max-width: 300px;
+}
+
+#img6 {
+    z-index: 1;
+    max-width: 300px;
+}
+
+button {
+    width: 100px;
+    
+}
+

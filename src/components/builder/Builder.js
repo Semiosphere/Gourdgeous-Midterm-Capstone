@@ -126,12 +126,12 @@ export const AvatarForm = () => {
         const newAvatar = {
             userId: parseInt(localStorage.getItem("gourdgeous_user")),
             name: avatar.name,
-            hat: avatar.hatId,
-            eyes: avatar.eyeId,
-            mouth: avatar.mouthId,
-            shirt: avatar.shirtId,
-            body: avatar.bodyId,
-            background: avatar.backgroundId
+            hatId: avatar.hatId,
+            eyeId: avatar.eyeId,
+            mouthId: avatar.mouthId,
+            shirtId: avatar.shirtId,
+            bodyId: avatar.bodyId,
+            backgroundId: avatar.backgroundId
 
         }
         const fetchOption = {

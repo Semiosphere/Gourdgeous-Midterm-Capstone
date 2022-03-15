@@ -1,10 +1,10 @@
-.pageGrid {
+/* .pageGrid {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.images {
+.image-grid {
     display: grid;
 }
 img {
@@ -13,32 +13,32 @@ img {
     margin: 20px;
 }
 
-#img1 {
+#hatImg {
     z-index: 6;
     max-width: 300px;
 }
 
-#img2 {
+#eyeImg {
     z-index: 5;
     max-width: 300px;
 }
 
-#img3 {
+#mouthImg {
     z-index: 4;
     max-width: 300px;
 }
 
-#img4 {
+#shirtImg {
     z-index: 3;
     max-width: 300px;
 }
 
-#img5 {
+#bodyImg {
     z-index: 2;
     max-width: 300px;
 }
 
-#img6 {
+#backgroundImg {
     z-index: 1;
     max-width: 300px;
 }
@@ -52,4 +52,4 @@ button {
     margin-left: 20px;
     
 }
-
+ */

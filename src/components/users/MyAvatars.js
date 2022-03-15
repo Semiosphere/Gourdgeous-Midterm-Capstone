@@ -44,14 +44,14 @@ export const AvatarList = () => {
             {
                 avatars.map(
                     (avatarObject) => {
-                        return <div class="images">
+                        return <div class="image-grid">
                             <h4 id="avatarName">{avatarObject.name}</h4>
-                             <img id="img1" src={avatarObject.hat.image}></img>
-                             <img id="img2" src={avatarObject.eye.image}></img>
-                             <img id="img3" src={avatarObject.mouth.image}></img>
-                             <img id="img4" src={avatarObject.shirt.image}></img>
-                             <img id="img5" src={avatarObject.body.image}></img>
-                             <img id="img6" src={avatarObject.background.image}></img>
+                             <img id="hatImg" src={avatarObject.hat.image}></img>
+                             <img id="eyeImg" src={avatarObject.eye.image}></img>
+                             <img id="mouthImg" src={avatarObject.mouth.image}></img>
+                             <img id="shirtImg" src={avatarObject.shirt.image}></img>
+                             <img id="bodyImg" src={avatarObject.body.image}></img>
+                             <img id="backgroundImg" src={avatarObject.background.image}></img>
                              <button onClick={(eventId) => {removeAvatar(eventId)}}>Delete Avatar</button>
                             </div>
                     }

@@ -43,8 +43,13 @@ img {
     max-width: 300px;
 }
 
+#avatarName {
+    margin-left: 20px;
+}
+
 button {
     width: 100px;
+    margin-left: 20px;
     
 }
 

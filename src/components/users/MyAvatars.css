@@ -1,55 +1,74 @@
-/* .pageGrid {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Moon+Dance&display=swap");
+
+#header {
+  margin-left: 20px;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.pageGrid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
 
 .image-grid {
-    display: grid;
+  display: grid;
 }
-img {
-    max-width: 50%;
-    grid-area: 1 / 1 / 1 / 1;
-    margin: 20px;
+
+.image-grid:hover {
+  opacity: 25%;
+  transition: 0.5s ease;
 }
 
 #hatImg {
-    z-index: 6;
-    max-width: 300px;
+  z-index: 6;
+  max-width: 300px;
+  grid-area: 1 / 1 / 1 / 1;
+  margin: 20px;
 }
 
 #eyeImg {
-    z-index: 5;
-    max-width: 300px;
+  z-index: 5;
+  max-width: 300px;
+  grid-area: 1 / 1 / 1 / 1;
+  margin: 20px;
 }
 
 #mouthImg {
-    z-index: 4;
-    max-width: 300px;
+  z-index: 4;
+  max-width: 300px;
+  grid-area: 1 / 1 / 1 / 1;
+  margin: 20px;
 }
 
 #shirtImg {
-    z-index: 3;
-    max-width: 300px;
+  z-index: 3;
+  max-width: 300px;
+  grid-area: 1 / 1 / 1 / 1;
+  margin: 20px;
 }
 
 #bodyImg {
-    z-index: 2;
-    max-width: 300px;
+  z-index: 2;
+  max-width: 300px;
+  grid-area: 1 / 1 / 1 / 1;
+  margin: 20px;
 }
 
 #backgroundImg {
-    z-index: 1;
-    max-width: 300px;
+  z-index: 1;
+  max-width: 300px;
+  grid-area: 1 / 1 / 1 / 1;
+  margin: 20px;
 }
 
 #avatarName {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 button {
-    width: 100px;
-    margin-left: 20px;
-    
+  width: 100px;
+  margin-top: 20px;
+  margin-left: 20px;
 }
- */

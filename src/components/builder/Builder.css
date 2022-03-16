@@ -1,69 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Moon+Dance&display=swap");
+
 .item-a {
-    grid-area: dropdown;
-    margin-left: 20px;
+  grid-area: dropdown;
+  font-family: "Josefin Sans", sans-serif;
+  color: aliceblue;
+  background-color: rgb(189, 189, 189);
+  border-radius: 0px 10px 10px 0px;
+  padding: 10px;
+}
+
+option {
+  font-family: "Josefin Sans", sans-serif;
+  background-color: rgb(236, 236, 236);
+}
+
+option:hover {
+  background-color: #4caf9e;
 }
 
 .item-b {
-    display: grid;
-    grid-area: builder; 
+  display: grid;
+  grid-area: builder;
 }
 
 .item-c {
-    grid-area: text-Field;
-    width: 800px;
+  grid-area: text-Field;
+  width: 800px;
 }
-
-
+input {
+  font-family: "Josefin Sans", sans-serif;
+  font-style: italic;
+}
 
 #main-Grid {
-    display: grid;
-    grid-template-columns: 25% 75%;
-    grid-template-rows: 10% 90%;
-    grid-template-areas: 
+  display: grid;
+  grid-template-columns: 25% 75%;
+  grid-template-rows: 10% 90%;
+  grid-template-areas:
     ". text-Field"
     "dropdown builder";
+  grid-gap: 10px;
 }
 
-
-
-
 #img1 {
-    z-index: 6;
-    max-width: 800px;
-    grid-area: 1 / 1 / 1 / 1;
-    
+  z-index: 6;
+  max-width: 800px;
+  grid-area: 1 / 1 / 1 / 1;
 }
 
 #img2 {
-    z-index: 5;
-    max-width: 800px;
-    grid-area: 1 / 1 / 1 / 1;
+  z-index: 5;
+  max-width: 800px;
+  grid-area: 1 / 1 / 1 / 1;
 }
 
 #img3 {
-    z-index: 4;
-    max-width: 800px;
-    grid-area: 1 / 1 / 1 / 1;
+  z-index: 4;
+  max-width: 800px;
+  grid-area: 1 / 1 / 1 / 1;
 }
 
 #img4 {
-    z-index: 3;
-    max-width: 800px;
-    grid-area: 1 / 1 / 1 / 1;
+  z-index: 3;
+  max-width: 800px;
+  grid-area: 1 / 1 / 1 / 1;
 }
 
 #img5 {
-    z-index: 2;
-    max-width: 800px;
-    grid-area: 1 / 1 / 1 / 1;
+  z-index: 2;
+  max-width: 800px;
+  grid-area: 1 / 1 / 1 / 1;
 }
 
 #img6 {
-    z-index: 1;
-    max-width: 800px;
-    grid-area: 1 / 1 / 1 / 1;
+  z-index: 1;
+  max-width: 800px;
+  grid-area: 1 / 1 / 1 / 1;
 }
 
 #my-collection {
-    margin-left: 10px;
+  margin-left: 10px;
+}
+
+.builder-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+button:active {
+  background-color: #4caf9e;
+  box-shadow: 0 2px #666;
+  transform: translateY(4px);
+}
+
+#save-avatar {
+  width: 130px;
+  flex: auto;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 7px;
+}
+
+#save-avatar:hover {
+  background-color: #4caf9e;
+}
+
+#clear-selections {
+  width: 130px;
+  flex: auto;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 7px;
+}
+
+#clear-selections:hover {
+  background-color: #4caf9e;
+}
+
+#my-gourds {
+  width: 130px;
+  flex: auto;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 7px;
+}
+
+#my-gourds:hover {
+  background-color: #4caf9e;
 }

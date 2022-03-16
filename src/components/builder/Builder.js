@@ -1,7 +1,7 @@
 //This module is responsible for the functionality of the main Avatar Builder page
 
 import React, { useEffect, useState } from "react";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "./Builder.css";
 
 export const AvatarForm = () => {
@@ -72,7 +72,7 @@ export const AvatarForm = () => {
     eyeId: 0,
     mouthId: 0,
     shirtId: 0,
-    bodyId: 0,
+    bodyId: 1,
     backgroundId: 1,
   });
 
@@ -129,6 +129,10 @@ export const AvatarForm = () => {
     return fetch("http://localhost:8088/avatars", fetchOption);
   };
 
+  const clearSelections = () => {
+    window.location.reload();
+  };
+
   return (
     <>
       {/* These functions display the proper feature corresponding with the user selection */}
@@ -154,7 +158,7 @@ export const AvatarForm = () => {
               autoFocus
               type="text"
               className="form-control"
-              placeholder="Name your avatar"
+              placeholder="NAME YOUR AVATAR"
             />
           </div>
         </fieldset>
@@ -291,10 +295,17 @@ export const AvatarForm = () => {
               </select>
             </div>
           </fieldset>
-          <button onClick={saveAvatar} className="btn btn-primary">
-            Save Avatar
-          </button>
-          <button id="my-collection" Link to="/MyAvatars">My Gourds</button>
+          <div className="builder-buttons">
+            <button onClick={saveAvatar} id="save-avatar">
+              Save Avatar
+            </button>
+            <button onClick={clearSelections} id="clear-selections">
+              Clear Selections
+            </button>
+            <button onClick={() => history.push(`/MyAvatars`)} id="my-gourds">
+              My Gourds
+            </button>
+          </div>
         </form>
       </container>
     </>

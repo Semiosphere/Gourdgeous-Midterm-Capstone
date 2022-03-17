@@ -44,6 +44,10 @@ export const AvatarList = () => {
     history.push(`/login`);
   };
 
+  const editAvatar = (foundId) => {
+    history.push(`/avatars/create/${foundId}`);
+  };
+
   return (
     <>
       <button
@@ -78,7 +82,11 @@ export const AvatarList = () => {
               >
                 Delete Avatar
               </button>
-              <button classname="edit-avatars" onClick={() => {}}>
+              <button
+                classname="edit-avatars"
+                id={avatarObject.id}
+                onClick={(evt) => editAvatar(avatarObject.id)}
+              >
                 Edit Avatar
               </button>
             </div>

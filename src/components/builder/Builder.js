@@ -1,7 +1,7 @@
 //This module is responsible for the functionality of the main Avatar Builder page
 
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import "./Builder.css";
 
 export const AvatarForm = () => {
@@ -76,6 +76,14 @@ export const AvatarForm = () => {
     backgroundId: 1,
   });
 
+  const { avatarId } = useParams();
+
+  useEffect(() => {
+    fetch(`http://localhost:8088/avatars/${avatarId}`)
+      .then((res) => res.json())
+      .then(setAvatar);
+  }, [avatarId]);
+
   const history = useHistory();
 
   //The following functions allow me to create variables that represent each feature that has been selected by the user
@@ -130,7 +138,7 @@ export const AvatarForm = () => {
   };
 
   const clearSelections = () => {
-    window.location.reload();
+    history.push(`/avatars/create`);
   };
 
   return (
@@ -138,6 +146,7 @@ export const AvatarForm = () => {
       {/* These functions display the proper feature corresponding with the user selection */}
       <container id="main-Grid">
         <div class="item-b">
+          {/* <img id="imgOnLoad" src={getBackground().image}></img> */}
           {getHat() && <img id="img1" src={getHat().image}></img>}
           {getEye() && <img id="img2" src={getEye().image}></img>}
           {getMouth() && <img id="img3" src={getMouth().image}></img>}

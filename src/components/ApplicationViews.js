@@ -13,6 +13,10 @@ export const ApplicationViews = () => {
       <Route exact path="/MyAvatars">
         <AvatarList />
       </Route>
+
+      <Route exact path="/avatars/create/:avatarId(\d+)">
+        <AvatarForm />
+      </Route>
     </>
   );
 };

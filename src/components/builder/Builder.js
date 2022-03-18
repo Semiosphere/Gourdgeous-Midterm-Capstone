@@ -78,10 +78,13 @@ export const AvatarForm = () => {
 
   const { avatarId } = useParams();
 
+  //within this useEffect, don't run this fetch if no avatar.id is found
   useEffect(() => {
-    fetch(`http://localhost:8088/avatars/${avatarId}`)
-      .then((res) => res.json())
-      .then(setAvatar);
+    if (props.match.params.avatarId) {
+      fetch(`http://localhost:8088/avatars/${avatarId}`)
+        .then((res) => res.json())
+        .then(setAvatar);
+    }
   }, [avatarId]);
 
   const history = useHistory();
@@ -146,7 +149,6 @@ export const AvatarForm = () => {
       {/* These functions display the proper feature corresponding with the user selection */}
       <container id="main-Grid">
         <div class="item-b">
-          {/* <img id="imgOnLoad" src={getBackground().image}></img> */}
           {getHat() && <img id="img1" src={getHat().image}></img>}
           {getEye() && <img id="img2" src={getEye().image}></img>}
           {getMouth() && <img id="img3" src={getMouth().image}></img>}
@@ -320,3 +322,7 @@ export const AvatarForm = () => {
     </>
   );
 };
+
+//pass edit avatar id to builder.js (props?)
+
+//behavior of builder.js needs to change based on whether I'm creating a new avatar or editing an existing avatar

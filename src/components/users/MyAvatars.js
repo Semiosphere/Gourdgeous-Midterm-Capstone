@@ -85,7 +85,7 @@ export const AvatarList = () => {
               <button
                 classname="edit-avatars"
                 id={avatarObject.id}
-                onClick={(evt) => editAvatar(avatarObject.id)}
+                onClick={() => editAvatar(avatarObject.id)}
               >
                 Edit Avatar
               </button>

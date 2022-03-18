@@ -1,10 +1,10 @@
 //This module is responsible for the functionality of the main Avatar Builder page
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import "./Builder.css";
 
-export const AvatarForm = () => {
+export const AvatarForm = (props) => {
   //retrieving hats from database
   const [hats, setHats] = useState([]);
   useEffect(() => {
@@ -80,7 +80,7 @@ export const AvatarForm = () => {
 
   //within this useEffect, don't run this fetch if no avatar.id is found
   useEffect(() => {
-    if (props.match.params.avatarId) {
+    if (avatarId) {
       fetch(`http://localhost:8088/avatars/${avatarId}`)
         .then((res) => res.json())
         .then(setAvatar);
@@ -117,8 +117,11 @@ export const AvatarForm = () => {
     return background;
   };
 
+  const allSelectedDialogue = useRef();
+
   //This function holds all of the user selections and updates the api with a new avatar
-  const saveAvatar = (evt) => {
+  const saveAvatar = (event) => {
+    event.preventDefault();
     const newAvatar = {
       userId: parseInt(localStorage.getItem("gourdgeous_user")),
       name: avatar.name,
@@ -129,23 +132,43 @@ export const AvatarForm = () => {
       bodyId: avatar.bodyId,
       backgroundId: avatar.backgroundId,
     };
-    const fetchOption = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newAvatar),
-    };
 
-    return fetch("http://localhost:8088/avatars", fetchOption);
+    if (
+      newAvatar.name !== "" &&
+      newAvatar.hatId !== 0 &&
+      newAvatar.eyeId !== 0 &&
+      newAvatar.mouthId !== 0 &&
+      newAvatar.shirtId !== 0 &&
+      newAvatar.bodyId !== 0 &&
+      newAvatar.backgroundId !== 0
+    ) {
+      const fetchOption = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newAvatar),
+      };
+
+      return fetch("http://localhost:8088/avatars", fetchOption);
+    } else {
+      allSelectedDialogue.current.showModal();
+    }
   };
 
-  const clearSelections = () => {
-    history.push(`/avatars/create`);
-  };
+  const clearSelections = () => {};
 
   return (
     <>
+      <dialog className="dialog dialog--auth" ref={allSelectedDialogue}>
+        <div>Select a feature from each category to save your Gourd!</div>
+        <button
+          className="button--close"
+          onClick={() => allSelectedDialogue.current.close()}
+        >
+          Close
+        </button>
+      </dialog>
       {/* These functions display the proper feature corresponding with the user selection */}
       <container id="main-Grid">
         <div class="item-b">
@@ -160,6 +183,7 @@ export const AvatarForm = () => {
         <fieldset className="item-c">
           <div className="avatar-Name">
             <input
+              value={avatar.name}
               onChange={(evt) => {
                 const copy = { ...avatar };
                 copy.name = evt.target.value;
@@ -169,7 +193,7 @@ export const AvatarForm = () => {
               autoFocus
               type="text"
               className="form-control"
-              placeholder="NAME YOUR AVATAR"
+              placeholder="NAME YOUR GOURD"
             />
           </div>
         </fieldset>
@@ -179,6 +203,7 @@ export const AvatarForm = () => {
             <div className="hat-group">
               <label htmlFor="hats">Hats </label>
               <select
+                value={avatar.hatId}
                 required
                 autoFocus
                 type="text"
@@ -201,6 +226,7 @@ export const AvatarForm = () => {
             <div className="eye-group">
               <label htmlFor="eyes">Eyes </label>
               <select
+                value={avatar.eyeId}
                 required
                 autoFocus
                 type="text"
@@ -223,6 +249,7 @@ export const AvatarForm = () => {
             <div className="mouth-group">
               <label htmlFor="mouths">Mouths </label>
               <select
+                value={avatar.mouthId}
                 required
                 autoFocus
                 type="text"
@@ -245,6 +272,7 @@ export const AvatarForm = () => {
             <div className="shirt-group">
               <label htmlFor="shirts">Shirts </label>
               <select
+                value={avatar.shirtId}
                 required
                 autoFocus
                 type="text"
@@ -267,6 +295,7 @@ export const AvatarForm = () => {
             <div className="body-group">
               <label htmlFor="bodies">Bodies </label>
               <select
+                value={avatar.bodyId}
                 required
                 autoFocus
                 type="text"
@@ -289,6 +318,7 @@ export const AvatarForm = () => {
             <div className="background-group">
               <label htmlFor="backgrounds">Backgrounds </label>
               <select
+                value={avatar.backgroundId}
                 required
                 autoFocus
                 type="text"
@@ -322,7 +352,3 @@ export const AvatarForm = () => {
     </>
   );
 };
-
-//pass edit avatar id to builder.js (props?)
-
-//behavior of builder.js needs to change based on whether I'm creating a new avatar or editing an existing avatar

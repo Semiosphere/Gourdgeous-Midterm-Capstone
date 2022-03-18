@@ -25,42 +25,42 @@
   z-index: 6;
   max-width: 300px;
   grid-area: 1 / 1 / 1 / 1;
-  margin: 20px;
+  margin: 7px;
 }
 
 #eyeImg {
   z-index: 5;
   max-width: 300px;
   grid-area: 1 / 1 / 1 / 1;
-  margin: 20px;
+  margin: 7px;
 }
 
 #mouthImg {
   z-index: 4;
   max-width: 300px;
   grid-area: 1 / 1 / 1 / 1;
-  margin: 20px;
+  margin: 7px;
 }
 
 #shirtImg {
   z-index: 3;
   max-width: 300px;
   grid-area: 1 / 1 / 1 / 1;
-  margin: 20px;
+  margin: 7px;
 }
 
 #bodyImg {
   z-index: 2;
   max-width: 300px;
   grid-area: 1 / 1 / 1 / 1;
-  margin: 20px;
+  margin: 7px;
 }
 
 #backgroundImg {
   z-index: 1;
   max-width: 300px;
   grid-area: 1 / 1 / 1 / 1;
-  margin: 20px;
+  margin: 7px;
 }
 
 #avatarName {

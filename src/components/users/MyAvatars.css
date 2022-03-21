@@ -3,6 +3,7 @@
 #header {
   margin-left: 20px;
   font-family: "Josefin Sans", sans-serif;
+  color: aquamarine;
 }
 
 .pageGrid {
@@ -17,8 +18,9 @@
 }
 
 .image-grid:hover {
-  opacity: 25%;
-  transition: 0.5s ease;
+  background-color: rgb(147, 173, 164);
+  border-radius: 3px;
+  transition: ease 0.3s;
 }
 
 #hatImg {
@@ -26,6 +28,9 @@
   max-width: 300px;
   grid-area: 1 / 1 / 1 / 1;
   margin: 7px;
+  overflow: hidden;
+  border: 1px solid aquamarine;
+  border-radius: 3px;
 }
 
 #eyeImg {
@@ -33,6 +38,8 @@
   max-width: 300px;
   grid-area: 1 / 1 / 1 / 1;
   margin: 7px;
+  border: 1px solid aquamarine;
+  border-radius: 3px;
 }
 
 #mouthImg {
@@ -40,6 +47,8 @@
   max-width: 300px;
   grid-area: 1 / 1 / 1 / 1;
   margin: 7px;
+  border: 1px solid aquamarine;
+  border-radius: 3px;
 }
 
 #shirtImg {
@@ -47,6 +56,8 @@
   max-width: 300px;
   grid-area: 1 / 1 / 1 / 1;
   margin: 7px;
+  border: 1px solid aquamarine;
+  border-radius: 3px;
 }
 
 #bodyImg {
@@ -54,6 +65,8 @@
   max-width: 300px;
   grid-area: 1 / 1 / 1 / 1;
   margin: 7px;
+  border: 1px solid aquamarine;
+  border-radius: 3px;
 }
 
 #accessoryImg {
@@ -61,6 +74,8 @@
   max-width: 300px;
   grid-area: 1 / 1 / 1 / 1;
   margin: 7px;
+  border: 1px solid aquamarine;
+  border-radius: 3px;
 }
 
 #backgroundImg {
@@ -68,14 +83,22 @@
   max-width: 300px;
   grid-area: 1 / 1 / 1 / 1;
   margin: 7px;
+  border: 1px solid aquamarine;
+  border-radius: 3px;
 }
 
 #avatarName {
-  margin-left: 20px;
+  font-size: large;
+  color: aquamarine;
+  margin-left: 10px;
 }
 
-button {
+.delete-buttons {
   width: 100px;
-  margin-top: 20px;
-  margin-left: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.edit-avatars {
+  width: 100px;
 }

@@ -50,50 +50,57 @@ export const AvatarList = () => {
 
   return (
     <>
-      <button
-        className="avatar-builder"
-        onClick={() => history.push("/avatars/create")}
-      >
-        Avatar Builder
-      </button>
+      <container className="collection-container">
+        <button
+          className="avatar-builder"
+          onClick={() => history.push("/avatars/create")}
+        >
+          Avatar Builder
+        </button>
 
-      <button className="logout" onClick={() => logout()}>
-        Logout
-      </button>
-      {active}
-      <h2 id="header">My Avatars</h2>
-      <div class="pageGrid">
-        {avatars.map((avatarObject) => {
-          return (
-            <div class="image-grid">
-              <img id="hatImg" src={avatarObject.hat.image}></img>
-              <img id="eyeImg" src={avatarObject.eye.image}></img>
-              <img id="mouthImg" src={avatarObject.mouth.image}></img>
-              <img id="shirtImg" src={avatarObject.shirt.image}></img>
-              <img id="accessoryImg" src={avatarObject.accessory.image}></img>
-              <img id="bodyImg" src={avatarObject.body.image}></img>
-              <img id="backgroundImg" src={avatarObject.background.image}></img>
-              <h4 id="avatarName">{avatarObject.name}</h4>
-              <button
-                className="delete-buttons"
-                id={avatarObject.id}
-                onClick={(event) => {
-                  removeAvatar(event);
-                }}
-              >
-                Delete Avatar
-              </button>
-              <button
-                classname="edit-avatars"
-                id={avatarObject.id}
-                onClick={() => editAvatar(avatarObject.id)}
-              >
-                Edit Avatar
-              </button>
-            </div>
-          );
-        })}
-      </div>
+        <button className="logout" onClick={() => logout()}>
+          Logout
+        </button>
+        {active}
+        <h1 id="header">My Gourds</h1>
+        <div class="pageGrid">
+          {avatars.map((avatarObject) => {
+            return (
+              <div class="image-grid">
+                <h4 id="avatarName">{avatarObject.name}</h4>
+                <img id="hatImg" src={avatarObject.hat.image}></img>
+                <img id="eyeImg" src={avatarObject.eye.image}></img>
+                <img id="mouthImg" src={avatarObject.mouth.image}></img>
+                <img id="shirtImg" src={avatarObject.shirt.image}></img>
+                <img id="accessoryImg" src={avatarObject.accessory.image}></img>
+                <img id="bodyImg" src={avatarObject.body.image}></img>
+                <img
+                  id="backgroundImg"
+                  src={avatarObject.background.image}
+                ></img>
+                <div className="collection-buttons">
+                  <button
+                    className="delete-buttons"
+                    id={avatarObject.id}
+                    onClick={(event) => {
+                      removeAvatar(event);
+                    }}
+                  >
+                    Delete Avatar
+                  </button>
+                  <button
+                    classname="edit-avatars"
+                    id={avatarObject.id}
+                    onClick={() => editAvatar(avatarObject.id)}
+                  >
+                    Edit Avatar
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </container>
     </>
   );
 };

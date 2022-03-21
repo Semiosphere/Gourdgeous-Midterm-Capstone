@@ -11,7 +11,7 @@ export const AvatarList = () => {
     fetch(
       `http://localhost:8088/avatars?userId=${localStorage.getItem(
         "gourdgeous_user"
-      )}&_expand=hat&_expand=eye&_expand=mouth&_expand=shirt&_expand=body&_expand=background`
+      )}&_expand=hat&_expand=eye&_expand=mouth&_expand=shirt&_expand=body&_expand=background&_expand=accessory`
     )
       .then((res) => res.json())
       .then((avatarArray) => {
@@ -31,7 +31,7 @@ export const AvatarList = () => {
     fetch(
       `http://localhost:8088/avatars?userId=${localStorage.getItem(
         "gourdgeous_user"
-      )}&_expand=hat&_expand=eye&_expand=mouth&_expand=shirt&_expand=body&_expand=background`
+      )}&_expand=hat&_expand=eye&_expand=mouth&_expand=shirt&_expand=body&_expand=background&_expand=accessory`
     )
       .then((res) => res.json())
       .then((avatarsArray) => {
@@ -70,6 +70,7 @@ export const AvatarList = () => {
               <img id="eyeImg" src={avatarObject.eye.image}></img>
               <img id="mouthImg" src={avatarObject.mouth.image}></img>
               <img id="shirtImg" src={avatarObject.shirt.image}></img>
+              <img id="accessoryImg" src={avatarObject.accessory.image}></img>
               <img id="bodyImg" src={avatarObject.body.image}></img>
               <img id="backgroundImg" src={avatarObject.background.image}></img>
               <h4 id="avatarName">{avatarObject.name}</h4>

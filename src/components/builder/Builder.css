@@ -44,34 +44,41 @@ input {
 }
 
 #img1 {
-  z-index: 6;
+  z-index: 7;
   max-width: 800px;
   width: 100%;
   grid-area: 1 / 1 / 1 / 1;
 }
 
 #img2 {
-  z-index: 5;
+  z-index: 6;
   max-width: 800px;
   width: 100%;
   grid-area: 1 / 1 / 1 / 1;
 }
 
 #img3 {
-  z-index: 4;
+  z-index: 5;
   max-width: 800px;
   width: 100%;
   grid-area: 1 / 1 / 1 / 1;
 }
 
 #img4 {
-  z-index: 3;
+  z-index: 4;
   max-width: 800px;
   width: 100%;
   grid-area: 1 / 1 / 1 / 1;
 }
 
 #img5 {
+  z-index: 3;
+  max-width: 800px;
+  width: 100%;
+  grid-area: 1 / 1 / 1 / 1;
+}
+
+#img7 {
   z-index: 2;
   max-width: 800px;
   width: 100%;

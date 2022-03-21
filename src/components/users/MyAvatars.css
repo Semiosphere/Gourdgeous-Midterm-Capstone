@@ -22,34 +22,41 @@
 }
 
 #hatImg {
-  z-index: 6;
+  z-index: 7;
   max-width: 300px;
   grid-area: 1 / 1 / 1 / 1;
   margin: 7px;
 }
 
 #eyeImg {
-  z-index: 5;
+  z-index: 6;
   max-width: 300px;
   grid-area: 1 / 1 / 1 / 1;
   margin: 7px;
 }
 
 #mouthImg {
-  z-index: 4;
+  z-index: 5;
   max-width: 300px;
   grid-area: 1 / 1 / 1 / 1;
   margin: 7px;
 }
 
 #shirtImg {
-  z-index: 3;
+  z-index: 4;
   max-width: 300px;
   grid-area: 1 / 1 / 1 / 1;
   margin: 7px;
 }
 
 #bodyImg {
+  z-index: 3;
+  max-width: 300px;
+  grid-area: 1 / 1 / 1 / 1;
+  margin: 7px;
+}
+
+#accessoryImg {
   z-index: 2;
   max-width: 300px;
   grid-area: 1 / 1 / 1 / 1;

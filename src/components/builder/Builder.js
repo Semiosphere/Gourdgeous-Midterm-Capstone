@@ -45,6 +45,16 @@ export const AvatarForm = (props) => {
       });
   }, []);
 
+  //retrieving accessories from database
+  const [accessories, setAccessories] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:8088/accessories")
+      .then((res) => res.json())
+      .then((accessoryArray) => {
+        setAccessories(accessoryArray);
+      });
+  }, []);
+
   //retrieving bodies from database
   const [bodies, setBodies] = useState([]);
   useEffect(() => {
@@ -72,6 +82,7 @@ export const AvatarForm = (props) => {
     eyeId: 0,
     mouthId: 0,
     shirtId: 0,
+    accessoryId: 0,
     bodyId: 1,
     backgroundId: 1,
   });
@@ -106,6 +117,12 @@ export const AvatarForm = (props) => {
     const mouth = mouths.find((mouth) => mouth.id === avatar.mouthId);
     return mouth;
   };
+  const getAccessory = () => {
+    const accessory = accessories.find(
+      (accessory) => accessory.id === avatar.accessoryId
+    );
+    return accessory;
+  };
   const getShirt = () => {
     const shirt = shirts.find((shirt) => shirt.id === avatar.shirtId);
     return shirt;
@@ -129,6 +146,7 @@ export const AvatarForm = (props) => {
       eyeId: avatar.eyeId,
       mouthId: avatar.mouthId,
       shirtId: avatar.shirtId,
+      accessoryId: avatar.accessoryId,
       bodyId: avatar.bodyId,
       backgroundId: avatar.backgroundId,
     };
@@ -139,6 +157,7 @@ export const AvatarForm = (props) => {
       newAvatar.eyeId !== 0 &&
       newAvatar.mouthId !== 0 &&
       newAvatar.shirtId !== 0 &&
+      newAvatar.accessoryId !== 0 &&
       newAvatar.bodyId !== 0 &&
       newAvatar.backgroundId !== 0
     ) {
@@ -156,7 +175,9 @@ export const AvatarForm = (props) => {
     }
   };
 
-  const clearSelections = () => {};
+  const clearSelections = () => {
+    history.push("/avatars/create");
+  };
 
   return (
     <>
@@ -178,6 +199,7 @@ export const AvatarForm = (props) => {
           {getShirt() && <img id="img4" src={getShirt().image}></img>}
           {getBody() && <img id="img5" src={getBody().image}></img>}
           {getBackground() && <img id="img6" src={getBackground().image}></img>}
+          {getAccessory() && <img id="img7" src={getAccessory().image}></img>}
         </div>
 
         <fieldset className="item-c">
@@ -286,6 +308,29 @@ export const AvatarForm = (props) => {
                 <option value="0">Select a shirt</option>
                 {shirts.map((shirt) => (
                   <option value={shirt.id}>{shirt.name}</option>
+                ))}
+              </select>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <div className="accessory-group">
+              <label htmlFor="accessories">Accessories </label>
+              <select
+                value={avatar.accessoryId}
+                required
+                autoFocus
+                type="text"
+                className="form-control"
+                onChange={(evt) => {
+                  const copy = { ...avatar };
+                  copy.accessoryId = parseInt(evt.target.value);
+                  setAvatar(copy);
+                }}
+              >
+                <option value="0">Select an accessory</option>
+                {accessories.map((accessory) => (
+                  <option value={accessory.id}>{accessory.name}</option>
                 ))}
               </select>
             </div>

@@ -182,7 +182,7 @@ export const AvatarForm = (props) => {
   return (
     <>
       <dialog className="dialog dialog--auth" ref={allSelectedDialogue}>
-        <div>Select a feature from each category to save your Gourd!</div>
+        <div>Select a feature from each category and name your Gourd!</div>
         <button
           className="button--close"
           onClick={() => allSelectedDialogue.current.close()}
@@ -191,209 +191,214 @@ export const AvatarForm = (props) => {
         </button>
       </dialog>
       {/* These functions display the proper feature corresponding with the user selection */}
-      <container id="main-Grid">
-        <div class="item-b">
-          {getHat() && <img id="img1" src={getHat().image}></img>}
-          {getEye() && <img id="img2" src={getEye().image}></img>}
-          {getMouth() && <img id="img3" src={getMouth().image}></img>}
-          {getShirt() && <img id="img4" src={getShirt().image}></img>}
-          {getBody() && <img id="img5" src={getBody().image}></img>}
-          {getBackground() && <img id="img6" src={getBackground().image}></img>}
-          {getAccessory() && <img id="img7" src={getAccessory().image}></img>}
-        </div>
-
-        <fieldset className="item-c">
-          <div className="avatar-Name">
-            <input
-              value={avatar.name}
-              onChange={(evt) => {
-                const copy = { ...avatar };
-                copy.name = evt.target.value;
-                setAvatar(copy);
-              }}
-              required
-              autoFocus
-              type="text"
-              className="form-control"
-              placeholder="NAME YOUR GOURD"
-            />
+      <div className="page-background">
+        <container id="main-Grid">
+          <div class="item-b">
+            {getHat() && <img id="img1" src={getHat().image}></img>}
+            {getEye() && <img id="img2" src={getEye().image}></img>}
+            {getMouth() && <img id="img3" src={getMouth().image}></img>}
+            {getShirt() && <img id="img4" src={getShirt().image}></img>}
+            {getBody() && <img id="img5" src={getBody().image}></img>}
+            {getBackground() && (
+              <img id="img6" src={getBackground().image}></img>
+            )}
+            {getAccessory() && <img id="img7" src={getAccessory().image}></img>}
           </div>
-        </fieldset>
 
-        <form className="item-a">
-          <fieldset>
-            <div className="hat-group">
-              <label htmlFor="hats">Hats </label>
-              <select
-                value={avatar.hatId}
+          <fieldset className="item-c">
+            <div className="avatar-Name">
+              <input
+                value={avatar.name}
+                onChange={(evt) => {
+                  const copy = { ...avatar };
+                  copy.name = evt.target.value;
+                  setAvatar(copy);
+                }}
                 required
                 autoFocus
                 type="text"
                 className="form-control"
-                onChange={(evt) => {
-                  const copy = { ...avatar };
-                  copy.hatId = parseInt(evt.target.value);
-                  setAvatar(copy);
-                }}
-              >
-                <option value="0">Select a hat</option>
-                {hats.map((hat) => (
-                  <option value={hat.id}>{hat.name}</option>
-                ))}
-              </select>
+                placeholder="NAME YOUR GOURD"
+              />
             </div>
           </fieldset>
 
-          <fieldset>
-            <div className="eye-group">
-              <label htmlFor="eyes">Eyes </label>
-              <select
-                value={avatar.eyeId}
-                required
-                autoFocus
-                type="text"
-                className="form-control"
-                onChange={(evt) => {
-                  const copy = { ...avatar };
-                  copy.eyeId = parseInt(evt.target.value);
-                  setAvatar(copy);
-                }}
-              >
-                <option value="0">Select eyes</option>
-                {eyes.map((eye) => (
-                  <option value={eye.id}>{eye.name}</option>
-                ))}
-              </select>
-            </div>
-          </fieldset>
+          <form className="item-a">
+            <fieldset>
+              <div className="hat-group">
+                <label htmlFor="hats">Hats </label>
+                <select
+                  value={avatar.hatId}
+                  required
+                  autoFocus
+                  type="text"
+                  className="form-control"
+                  onChange={(evt) => {
+                    const copy = { ...avatar };
+                    copy.hatId = parseInt(evt.target.value);
+                    setAvatar(copy);
+                  }}
+                >
+                  <option value="0">Select a hat</option>
+                  {hats.map((hat) => (
+                    <option value={hat.id}>{hat.name}</option>
+                  ))}
+                </select>
+              </div>
+            </fieldset>
 
-          <fieldset>
-            <div className="mouth-group">
-              <label htmlFor="mouths">Mouths </label>
-              <select
-                value={avatar.mouthId}
-                required
-                autoFocus
-                type="text"
-                className="form-control"
-                onChange={(evt) => {
-                  const copy = { ...avatar };
-                  copy.mouthId = parseInt(evt.target.value);
-                  setAvatar(copy);
-                }}
-              >
-                <option value="0">Select a mouth</option>
-                {mouths.map((mouth) => (
-                  <option value={mouth.id}>{mouth.name}</option>
-                ))}
-              </select>
-            </div>
-          </fieldset>
+            <fieldset>
+              <div className="eye-group">
+                <label htmlFor="eyes">Eyes </label>
+                <select
+                  value={avatar.eyeId}
+                  required
+                  autoFocus
+                  type="text"
+                  className="form-control"
+                  onChange={(evt) => {
+                    const copy = { ...avatar };
+                    copy.eyeId = parseInt(evt.target.value);
+                    setAvatar(copy);
+                  }}
+                >
+                  <option value="0">Select eyes</option>
+                  {eyes.map((eye) => (
+                    <option value={eye.id}>{eye.name}</option>
+                  ))}
+                </select>
+              </div>
+            </fieldset>
 
-          <fieldset>
-            <div className="shirt-group">
-              <label htmlFor="shirts">Shirts </label>
-              <select
-                value={avatar.shirtId}
-                required
-                autoFocus
-                type="text"
-                className="form-control"
-                onChange={(evt) => {
-                  const copy = { ...avatar };
-                  copy.shirtId = parseInt(evt.target.value);
-                  setAvatar(copy);
-                }}
-              >
-                <option value="0">Select a shirt</option>
-                {shirts.map((shirt) => (
-                  <option value={shirt.id}>{shirt.name}</option>
-                ))}
-              </select>
-            </div>
-          </fieldset>
+            <fieldset>
+              <div className="mouth-group">
+                <label htmlFor="mouths">Mouths </label>
+                <select
+                  value={avatar.mouthId}
+                  required
+                  autoFocus
+                  type="text"
+                  className="form-control"
+                  onChange={(evt) => {
+                    const copy = { ...avatar };
+                    copy.mouthId = parseInt(evt.target.value);
+                    setAvatar(copy);
+                  }}
+                >
+                  <option value="0">Select a mouth</option>
+                  {mouths.map((mouth) => (
+                    <option value={mouth.id}>{mouth.name}</option>
+                  ))}
+                </select>
+              </div>
+            </fieldset>
 
-          <fieldset>
-            <div className="accessory-group">
-              <label htmlFor="accessories">Accessories </label>
-              <select
-                value={avatar.accessoryId}
-                required
-                autoFocus
-                type="text"
-                className="form-control"
-                onChange={(evt) => {
-                  const copy = { ...avatar };
-                  copy.accessoryId = parseInt(evt.target.value);
-                  setAvatar(copy);
-                }}
-              >
-                <option value="0">Select an accessory</option>
-                {accessories.map((accessory) => (
-                  <option value={accessory.id}>{accessory.name}</option>
-                ))}
-              </select>
-            </div>
-          </fieldset>
+            <fieldset>
+              <div className="shirt-group">
+                <label htmlFor="shirts">Shirts </label>
+                <select
+                  value={avatar.shirtId}
+                  required
+                  autoFocus
+                  type="text"
+                  className="form-control"
+                  onChange={(evt) => {
+                    const copy = { ...avatar };
+                    copy.shirtId = parseInt(evt.target.value);
+                    setAvatar(copy);
+                  }}
+                >
+                  <option value="0">Select a shirt</option>
+                  {shirts.map((shirt) => (
+                    <option value={shirt.id}>{shirt.name}</option>
+                  ))}
+                </select>
+              </div>
+            </fieldset>
 
-          <fieldset>
-            <div className="body-group">
-              <label htmlFor="bodies">Bodies </label>
-              <select
-                value={avatar.bodyId}
-                required
-                autoFocus
-                type="text"
-                className="form-control"
-                onChange={(evt) => {
-                  const copy = { ...avatar };
-                  copy.bodyId = parseInt(evt.target.value);
-                  setAvatar(copy);
-                }}
-              >
-                <option value="0">Select a body</option>
-                {bodies.map((body) => (
-                  <option value={body.id}>{body.name}</option>
-                ))}
-              </select>
-            </div>
-          </fieldset>
+            <fieldset>
+              <div className="accessory-group">
+                <label htmlFor="accessories">Accessories </label>
+                <select
+                  value={avatar.accessoryId}
+                  required
+                  autoFocus
+                  type="text"
+                  className="form-control"
+                  onChange={(evt) => {
+                    const copy = { ...avatar };
+                    copy.accessoryId = parseInt(evt.target.value);
+                    setAvatar(copy);
+                  }}
+                >
+                  <option value="0">Select an accessory</option>
+                  {accessories.map((accessory) => (
+                    <option value={accessory.id}>{accessory.name}</option>
+                  ))}
+                </select>
+              </div>
+            </fieldset>
 
-          <fieldset>
-            <div className="background-group">
-              <label htmlFor="backgrounds">Backgrounds </label>
-              <select
-                value={avatar.backgroundId}
-                required
-                autoFocus
-                type="text"
-                className="form-control"
-                onChange={(evt) => {
-                  const copy = { ...avatar };
-                  copy.backgroundId = parseInt(evt.target.value);
-                  setAvatar(copy);
-                }}
-              >
-                <option value="0">Select a background</option>
-                {backgrounds.map((background) => (
-                  <option value={background.id}>{background.name}</option>
-                ))}
-              </select>
+            <fieldset>
+              <div className="body-group">
+                <label htmlFor="bodies">Bodies </label>
+                <select
+                  value={avatar.bodyId}
+                  required
+                  autoFocus
+                  type="text"
+                  className="form-control"
+                  onChange={(evt) => {
+                    const copy = { ...avatar };
+                    copy.bodyId = parseInt(evt.target.value);
+                    setAvatar(copy);
+                  }}
+                >
+                  <option value="0">Select a body</option>
+                  {bodies.map((body) => (
+                    <option value={body.id}>{body.name}</option>
+                  ))}
+                </select>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <div className="background-group">
+                <label htmlFor="backgrounds">Backgrounds </label>
+                <select
+                  value={avatar.backgroundId}
+                  required
+                  autoFocus
+                  type="text"
+                  className="form-control"
+                  onChange={(evt) => {
+                    const copy = { ...avatar };
+                    copy.backgroundId = parseInt(evt.target.value);
+                    setAvatar(copy);
+                  }}
+                >
+                  <option value="0">Select a background</option>
+                  {backgrounds.map((background) => (
+                    <option value={background.id}>{background.name}</option>
+                  ))}
+                </select>
+              </div>
+            </fieldset>
+            <div className="builder-buttons">
+              <button onClick={saveAvatar} id="save-avatar">
+                Save Avatar
+              </button>
+              <button onClick={clearSelections} id="clear-selections">
+                Clear Selections
+              </button>
+              <button onClick={() => history.push(`/MyAvatars`)} id="my-gourds">
+                My Gourds
+              </button>
             </div>
-          </fieldset>
-          <div className="builder-buttons">
-            <button onClick={saveAvatar} id="save-avatar">
-              Save Avatar
-            </button>
-            <button onClick={clearSelections} id="clear-selections">
-              Clear Selections
-            </button>
-            <button onClick={() => history.push(`/MyAvatars`)} id="my-gourds">
-              My Gourds
-            </button>
-          </div>
-        </form>
-      </container>
+          </form>
+        </container>
+        {/* Code below will create background art for builder page */}
+      </div>
     </>
   );
 };

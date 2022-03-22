@@ -184,13 +184,13 @@ export const AvatarForm = (props) => {
     const randomAvatar = {
       userId: parseInt(localStorage.getItem("gourdgeous_user")),
       name: "",
-      hatId: Math.floor(Math.random() * hats.length - 2) + 1,
-      eyeId: Math.floor(Math.random() * eyes.length - 2) + 1,
-      mouthId: Math.floor(Math.random() * mouths.length - 2) + 1,
-      shirtId: Math.floor(Math.random() * shirts.length - 2) + 1,
-      accessoryId: Math.floor(Math.random() * accessories.length - 1) + 1,
-      bodyId: Math.floor(Math.random() * bodies.length - 1) + 1,
-      backgroundId: Math.floor(Math.random() * backgrounds.length - 1) + 1,
+      hatId: Math.floor(Math.random() * hats.length - 1) + 2,
+      eyeId: Math.floor(Math.random() * eyes.length - 1) + 2,
+      mouthId: Math.floor(Math.random() * mouths.length - 1) + 2,
+      shirtId: Math.floor(Math.random() * shirts.length - 1) + 2,
+      accessoryId: Math.floor(Math.random() * accessories.length - 1) + 2,
+      bodyId: Math.floor(Math.random() * bodies.length - 1) + 2,
+      backgroundId: Math.floor(Math.random() * backgrounds.length - 1) + 2,
     };
     setAvatar(randomAvatar);
   };
@@ -220,6 +220,12 @@ export const AvatarForm = (props) => {
             )}
             {getAccessory() && <img id="img7" src={getAccessory().image}></img>}
           </div>
+          <section className="item-d">
+            <img
+              id="builder-logo"
+              src="https://res.cloudinary.com/dvdug0mzg/image/upload/v1647968032/Assets/Gourdgeous_Logo_hteo00.png"
+            ></img>
+          </section>
 
           <fieldset className="item-c">
             <div className="avatar-Name">

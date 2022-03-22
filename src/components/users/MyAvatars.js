@@ -51,18 +51,28 @@ export const AvatarList = () => {
   return (
     <>
       <container className="collection-container">
-        <button
-          className="avatar-builder"
-          onClick={() => history.push("/avatars/create")}
-        >
-          Avatar Builder
-        </button>
+        <div className="logo-header-buttons">
+          <img
+            id="collection-logo"
+            src="https://res.cloudinary.com/dvdug0mzg/image/upload/v1647968032/Assets/Gourdgeous_Logo_hteo00.png"
+          ></img>
+          <section className="header-buttons">
+            <h1 id="header">My Gourds</h1>
+            <div className="top-buttons">
+              <button
+                className="avatar-builder"
+                onClick={() => history.push("/avatars/create")}
+              >
+                Avatar Builder
+              </button>
 
-        <button className="logout" onClick={() => logout()}>
-          Logout
-        </button>
+              <button className="logout" onClick={() => logout()}>
+                Logout
+              </button>
+            </div>
+          </section>
+        </div>
         {active}
-        <h1 id="header">My Gourds</h1>
         <div class="pageGrid">
           {avatars.map((avatarObject) => {
             return (

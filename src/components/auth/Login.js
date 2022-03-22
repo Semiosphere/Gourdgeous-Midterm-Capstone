@@ -37,13 +37,18 @@ export const Login = () => {
           Close
         </button>
       </dialog>
+      <section className="logo">
+        <img
+          id="login-logo"
+          src="https://res.cloudinary.com/dvdug0mzg/image/upload/v1647968032/Assets/Gourdgeous_Logo_hteo00.png"
+        ></img>
+      </section>
 
       <section>
         <form className="form--login" onSubmit={handleLogin}>
-          <h1>Gourdgeous</h1>
+          <h1>The Pumpkin Avatar Creation App</h1>
           <h2>Please sign in</h2>
           <fieldset>
-            <label htmlFor="inputEmail"> Email address </label>
             <input
               type="email"
               onChange={(evt) => set(evt.target.value)}
@@ -55,6 +60,9 @@ export const Login = () => {
           </fieldset>
           <fieldset>
             <button type="submit">Sign in</button>
+          </fieldset>
+          <fieldset>
+            <h3>Art and Code by Zach Dugger</h3>
           </fieldset>
         </form>
       </section>

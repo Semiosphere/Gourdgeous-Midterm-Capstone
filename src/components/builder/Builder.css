@@ -117,8 +117,8 @@ input {
 }
 
 button:active {
-  background-color: #4caf9e;
-  box-shadow: 0 2px #666;
+  background-color: tomato;
+  box-shadow: 0 2px rgb(109, 32, 18);
   transform: translateY(4px);
 }
 
@@ -132,7 +132,7 @@ button:active {
 }
 
 #save-avatar:hover {
-  background-color: #4caf9e;
+  background-color: tomato;
 }
 
 #clear-selections {
@@ -145,7 +145,7 @@ button:active {
 }
 
 #clear-selections:hover {
-  background-color: #4caf9e;
+  background-color: tomato;
 }
 
 #my-gourds {
@@ -158,7 +158,7 @@ button:active {
 }
 
 #my-gourds:hover {
-  background-color: #4caf9e;
+  background-color: tomato;
 }
 
 /* background art styles below this comment */

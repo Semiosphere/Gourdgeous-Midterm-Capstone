@@ -179,6 +179,22 @@ export const AvatarForm = (props) => {
     history.push("/avatars/create");
   };
 
+  const randomAvatarGenerator = (event) => {
+    event.preventDefault();
+    const randomAvatar = {
+      userId: parseInt(localStorage.getItem("gourdgeous_user")),
+      name: "",
+      hatId: Math.floor(Math.random() * hats.length - 2) + 1,
+      eyeId: Math.floor(Math.random() * eyes.length - 2) + 1,
+      mouthId: Math.floor(Math.random() * mouths.length - 2) + 1,
+      shirtId: Math.floor(Math.random() * shirts.length - 2) + 1,
+      accessoryId: Math.floor(Math.random() * accessories.length - 1) + 1,
+      bodyId: Math.floor(Math.random() * bodies.length - 1) + 1,
+      backgroundId: Math.floor(Math.random() * backgrounds.length - 1) + 1,
+    };
+    setAvatar(randomAvatar);
+  };
+
   return (
     <>
       <dialog className="dialog dialog--auth" ref={allSelectedDialogue}>
@@ -393,6 +409,9 @@ export const AvatarForm = (props) => {
               </button>
               <button onClick={() => history.push(`/MyAvatars`)} id="my-gourds">
                 My Gourds
+              </button>
+              <button onClick={randomAvatarGenerator} id="random-avatar">
+                Random Gourd
               </button>
             </div>
           </form>

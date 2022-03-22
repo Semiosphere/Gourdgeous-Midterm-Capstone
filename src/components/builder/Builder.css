@@ -28,6 +28,10 @@ option:hover {
   max-width: 100%;
 }
 
+.item-d {
+  grid-area: logo;
+}
+
 input {
   font-family: "Josefin Sans", sans-serif;
   font-style: italic;
@@ -38,8 +42,8 @@ input {
   grid-template-columns: 25% 46% 9%;
   grid-template-rows: 10% 90%;
   grid-template-areas:
-    ". text-Field"
-    "dropdown builder";
+    "logo text-Field ."
+    "dropdown builder .";
   grid-gap: 10px;
 }
 
@@ -111,6 +115,7 @@ input {
 }
 
 .builder-buttons {
+  margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -148,6 +153,19 @@ button:active {
   background-color: tomato;
 }
 
+#random-avatar {
+  width: 130px;
+  flex: auto;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 7px;
+}
+
+#random-avatar:hover {
+  background-color: tomato;
+}
+
 #my-gourds {
   width: 130px;
   flex: auto;
@@ -163,14 +181,19 @@ button:active {
 
 /* background art styles below this comment */
 .page-background,
-.collection-container {
+body {
   height: 100%;
   width: 100%;
   position: absolute;
   top: 1;
   object-fit: cover;
   background-size: cover;
-  background-color: #cccccc;
+  background-color: #061713;
   background-repeat: no-repeat;
   background-image: url(https://res.cloudinary.com/dvdug0mzg/image/upload/v1647889012/Assets/BG_Darkened_zyjhjt.png) !important;
+}
+
+#builder-logo {
+  width: 85%;
+  margin-bottom: 100px;
 }

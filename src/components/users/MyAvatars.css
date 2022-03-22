@@ -1,11 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Moon+Dance&display=swap");
 
-#header {
-  margin-left: 20px;
-  font-family: "Josefin Sans", sans-serif;
-  color: aquamarine;
-}
-
 .pageGrid {
   display: flex;
   flex-direction: row;
@@ -101,4 +95,46 @@
 }
 .edit-avatars {
   width: 100px;
+}
+
+#header {
+  font-family: "Josefin Sans", sans-serif;
+  color: aquamarine;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px !important;
+}
+
+.header-buttons {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-left: 30%;
+  justify-content: center;
+}
+
+.avatar-builder {
+  width: 100px;
+}
+
+.logout {
+  margin-left: 20px;
+  width: 100px;
+}
+
+#collection-logo {
+  margin-left: 15px;
+  display: flex;
+  width: 30%;
+  max-width: 250px;
+}
+
+.top-buttons {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+.logo-header-buttons {
+  display: flex;
 }

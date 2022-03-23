@@ -14,14 +14,6 @@ fieldset {
   border: 0;
 }
 
-.form--login {
-  display: inline-block;
-  margin: 0 auto;
-  text-align: center;
-  font-family: "Josefin Sans", sans-serif;
-  color: aquamarine;
-}
-
 .form--login > fieldset > input[type="email"] {
   width: 25em;
 }
@@ -55,7 +47,12 @@ fieldset {
 }
 
 .form--login {
-  width: 90%;
+  display: flex;
+  margin: 0 auto;
+  text-align: center;
+  font-family: "Josefin Sans", sans-serif;
+  color: aquamarine;
+  width: 50%;
   background-position-x: right;
   z-index: 1;
   min-height: 25rem;
@@ -64,6 +61,8 @@ fieldset {
   background-blend-mode: overlay;
   background-repeat: no-repeat;
   border-radius: 10px;
+  flex-direction: column;
+  place-content: center;
 }
 
 .button--close {
@@ -82,10 +81,5 @@ a {
 }
 
 #login-logo {
-  width: 70%;
-}
-
-#login-logo:hover {
-  transform: scale(105%);
-  transition: ease-in 0.5s;
+  width: 50%;
 }

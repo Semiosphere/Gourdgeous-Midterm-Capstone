@@ -200,7 +200,7 @@ body {
   margin-left: 13%;
 }
 
-.dialog--auth {
+/* .dialog--auth {
   display: flex;
   flex-direction: column;
   width: 320px;
@@ -209,7 +209,7 @@ body {
   height: 300px;
   text-align: center;
   place-content: center;
-}
+} */
 
 #builder-king {
   width: 70%;

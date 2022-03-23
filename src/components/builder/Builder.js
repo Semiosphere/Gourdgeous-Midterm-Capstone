@@ -199,6 +199,10 @@ export const AvatarForm = (props) => {
     <>
       <dialog className="dialog dialog--auth" ref={allSelectedDialogue}>
         <div>Select a feature from each category and name your Gourd!</div>
+        <img
+          id="builder-king"
+          src="https://res.cloudinary.com/dvdug0mzg/image/upload/v1647878509/Assets/King_BW_j5yqmr.png"
+        ></img>
         <button
           className="button--close"
           onClick={() => allSelectedDialogue.current.close()}
@@ -226,7 +230,6 @@ export const AvatarForm = (props) => {
               src="https://res.cloudinary.com/dvdug0mzg/image/upload/v1647968032/Assets/Gourdgeous_Logo_hteo00.png"
             ></img>
           </section>
-
           <fieldset className="item-c">
             <div className="avatar-Name">
               <input

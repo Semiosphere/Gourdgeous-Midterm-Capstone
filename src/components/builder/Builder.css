@@ -4,8 +4,8 @@
   grid-area: dropdown;
   font-family: "Josefin Sans", sans-serif;
   color: aliceblue;
+  text-align: center;
   border-radius: 0px 10px 10px 0px;
-  padding: 10px;
 }
 
 option {
@@ -39,7 +39,7 @@ input {
 
 #main-Grid {
   display: grid;
-  grid-template-columns: 25% 46% 9%;
+  grid-template-columns: 25% 46% 29%;
   grid-template-rows: 10% 90%;
   grid-template-areas:
     "logo text-Field ."
@@ -119,6 +119,7 @@ input {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  margin-left: 10px;
 }
 
 button:active {
@@ -194,6 +195,24 @@ body {
 }
 
 #builder-logo {
-  width: 85%;
-  margin-bottom: 100px;
+  width: 70%;
+  margin-bottom: 10%;
+  margin-left: 13%;
+}
+
+.dialog--auth {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  background-color: #0b5f51;
+  color: aliceblue;
+  height: 300px;
+  text-align: center;
+  place-content: center;
+}
+
+#builder-king {
+  width: 70%;
+  align-self: center;
+  margin-top: 10px;
 }

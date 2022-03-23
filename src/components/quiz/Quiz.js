@@ -12,6 +12,7 @@
 //of objects with the same property value to build a random avatar at the end of the quiz
 
 import React, { useEffect, useState } from "react";
+import ReactDOM from "react-dom";
 // import { useHistory, useParams } from "react-router-dom";
 import "./Quiz.css";
 
@@ -33,6 +34,10 @@ export const QuizForm = () => {
       .then((res) => res.json())
       .then(setQuizAnswers);
   }, []);
+
+  const handleInput = (e) => {
+    console.log(e.target.value);
+  };
 
   const submitQuizAnswers = (event) => {
     event.preventDefault();
@@ -57,34 +62,27 @@ export const QuizForm = () => {
 
   return (
     <>
-      <form className="quiz-form">
-        <fieldset>
-          <div className="question-1">
-            <h1>Are you spooky or sweet?</h1>
-            <div id="q-1-buttons">
-              <button
-                id="q-1-button-1"
-                onClick={() => {
-                  const copy = { ...quizAnswers };
-                  copy.q1 = 1;
-                  setQuizAnswers(copy);
-                }}
-              >
-                I'm something of a skeleton, myself
-              </button>
-              <button
-                id="q-1-button-2"
-                onClick={() => {
-                  const copy = { ...quizAnswers };
-                  copy.q1 = 2;
-                  setQuizAnswers(copy);
-                }}
-              >
-                Oh, I get cavities!
-              </button>
-            </div>
+      <container className="quiz-form">
+        <div className="question-1">
+          <h1>Are you spooky or sweet?</h1>
+          <div id="q-1-buttons">
+            <button
+              id="q-1-button-1"
+              value="1"
+              onClick={(e) => this.handleInput(e, "value")}
+            >
+              I'm something of a skeleton, myself
+            </button>
+            <button
+              id="q-1-button-2"
+              value="2"
+              onClick={(e) => this.handleInput(e, "value")}
+            >
+              Oh, I get cavities!
+            </button>
           </div>
-          <div className="question-2">
+        </div>
+        {/* <div className="question-2">
             <h1>Would you rather visit a castle or a space station?</h1>
             <div id="q-2-buttons">
               <button
@@ -158,9 +156,8 @@ export const QuizForm = () => {
                 Cold is gold, baby
               </button>
             </div>
-          </div>
-        </fieldset>
-      </form>
+          </div> */}
+      </container>
     </>
   );
 };

@@ -197,12 +197,8 @@ export const AvatarForm = (props) => {
 
   return (
     <>
-      <dialog className="dialog dialog--auth" ref={allSelectedDialogue}>
+      <dialog className="dialog dialog-builder" ref={allSelectedDialogue}>
         <div>Select a feature from each category and name your Gourd!</div>
-        <img
-          id="builder-king"
-          src="https://res.cloudinary.com/dvdug0mzg/image/upload/v1647878509/Assets/King_BW_j5yqmr.png"
-        ></img>
         <button
           className="button--close"
           onClick={() => allSelectedDialogue.current.close()}

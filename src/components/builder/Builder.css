@@ -200,19 +200,12 @@ body {
   margin-left: 13%;
 }
 
-/* .dialog--auth {
-  display: flex;
-  flex-direction: column;
-  width: 320px;
-  background-color: #0b5f51;
-  color: aliceblue;
-  height: 300px;
-  text-align: center;
-  place-content: center;
-} */
-
 #builder-king {
   width: 70%;
   align-self: center;
   margin-top: 10px;
+}
+
+.dialog-builder {
+  place-content: center;
 }

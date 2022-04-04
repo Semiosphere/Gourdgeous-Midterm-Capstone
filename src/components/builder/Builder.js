@@ -4,7 +4,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import "./Builder.css";
 
-export const AvatarForm = (props) => {
+export const AvatarForm = () => {
   //retrieving hats from database
   const [hats, setHats] = useState([]);
   useEffect(() => {
@@ -197,8 +197,10 @@ export const AvatarForm = (props) => {
 
   return (
     <>
-      <dialog className="dialog dialog-builder" ref={allSelectedDialogue}>
-        <div>Select a feature from each category and name your Gourd!</div>
+      <dialog className="dialog-builder" ref={allSelectedDialogue}>
+        <div id="dialog-text">
+          Select a feature from each category and name your Gourd!
+        </div>
         <button
           className="button--close"
           onClick={() => allSelectedDialogue.current.close()}
@@ -413,13 +415,23 @@ export const AvatarForm = (props) => {
                 Clear Selections
               </button>
               <button onClick={() => history.push(`/MyAvatars`)} id="my-gourds">
-                My Gourds
-              </button>
-              <button onClick={randomAvatarGenerator} id="random-avatar">
-                Random Gourd
+                My <br></br>Gourds
               </button>
             </div>
           </form>
+
+          <div className="item-e">
+            <h1 id="info-header">Build your very own Gourd avatar!</h1>
+            <p id="info-text">
+              Make selections from each of the drop down categories on the left
+              to create your perfect Gourd! Don't forget to name your
+              masterpiece before saving it to your collection. If you're feeling
+              stuck, try the Random Gourd button for inspiration!
+            </p>
+            <button onClick={randomAvatarGenerator} id="random-avatar">
+              Random Gourd
+            </button>
+          </div>
         </container>
         {/* Code below will create background art for builder page */}
       </div>

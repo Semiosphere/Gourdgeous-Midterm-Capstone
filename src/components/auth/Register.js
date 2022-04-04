@@ -37,6 +37,12 @@ export const Register = (props) => {
     });
   };
 
+  const checkEmail = () => {
+    //step one figure out how to reference user text input
+    //step 2 set up parameters for valid email address
+    //step 3 on register click, check email validity---> if no, show modal. If yes, history.push
+  };
+
   const updateUser = (evt) => {
     const copy = { ...user };
     copy[evt.target.id] = evt.target.value;

@@ -4,23 +4,90 @@
 
 //The user will be routed to this page after creating a new account
 
-//Users will answer 4 questions by selecting the appropriate button. Each answer will be the value of a property
-//that is stored in an object and saved to the api. Each art object has a property
-//corresponding with the question answers and will be chosen randomly from the pool
-//of objects with the same property value to build a random avatar at the end of the quiz
+//Users will answer 4 questions by selecting the appropriate button
+
+//Answers selected will save a string value to the corresponding keys in a quizAnswers object in the database. These values
+//will be referenced to determine the quiz result
+
+//There are only 4 potential avatars that will render on quiz completion. The rendered avatar is determined by
+//the user's responses to the first 2 questions of the quiz. Since the quiz cannot be retaken, the illusion of
+//random avatar generation will be convincing enough for most users.
 
 import React, { useEffect, useState, useRef } from "react";
 import { useHistory } from "react-router-dom";
-import ReactDOM from "react-dom";
-// import { useHistory, useParams } from "react-router-dom";
 import "./Quiz.css";
 
-//Q1: Are you spooky or sweet? ---I'm something of a skeleton, myself / Oh, I get cavities! --- "spooky / sweet"
-//Q2: Would you rather visit a castle or a space station? ---Thine masonry doth entice me! / Oh! I have slipped the surly bonds of earth --- "fantasy / scifi"
-//Q3: In regards to your sense of fashion... ---I care a lot! / Eh, not important --- "fashionable / unfashionable"
-//Q4: Do you prefer summer or winter? ---I'm sweaty already and ready for more / Cold is gold, baby --- "summer / winter"
-
 export const QuizForm = () => {
+  //retrieving hats from database
+  const [hats, setHats] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:8088/hats")
+      .then((res) => res.json())
+      .then((hatArray) => {
+        setHats(hatArray);
+      });
+  }, []);
+
+  //retrieving eyes from database
+  const [eyes, setEyes] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:8088/eyes")
+      .then((res) => res.json())
+      .then((eyeArray) => {
+        setEyes(eyeArray);
+      });
+  }, []);
+
+  //retrieving mouths from database
+  const [mouths, setMouths] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:8088/mouths")
+      .then((res) => res.json())
+      .then((mouthArray) => {
+        setMouths(mouthArray);
+      });
+  }, []);
+
+  //retrieving shirts from database
+  const [shirts, setShirts] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:8088/shirts")
+      .then((res) => res.json())
+      .then((shirtArray) => {
+        setShirts(shirtArray);
+      });
+  }, []);
+
+  //retrieving accessories from database
+  const [accessories, setAccessories] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:8088/accessories")
+      .then((res) => res.json())
+      .then((accessoryArray) => {
+        setAccessories(accessoryArray);
+      });
+  }, []);
+
+  //retrieving bodies from database
+  const [bodies, setBodies] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:8088/bodies")
+      .then((res) => res.json())
+      .then((bodyArray) => {
+        setBodies(bodyArray);
+      });
+  }, []);
+
+  //retrieving backgrounds from database
+  const [backgrounds, setBackgrounds] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:8088/backgrounds")
+      .then((res) => res.json())
+      .then((backgroundArray) => {
+        setBackgrounds(backgroundArray);
+      });
+  }, []);
+
   const [quizAnswers, setQuizAnswers] = useState({
     q1: "",
     q2: "",
@@ -109,7 +176,106 @@ export const QuizForm = () => {
 
   const history = useHistory();
 
+  //This function converts the avatar rendered from quiz answers into an object
+  //that is saved to the user's collection
+  const tryItButton = () => {
+    if (quizAnswers.q1 === "spooky" && quizAnswers.q2 === "fantasy") {
+      const newAvatar = {
+        userId: parseInt(localStorage.getItem("gourdgeous_user")),
+        name: "My First Gourd!",
+        hatId: 5,
+        eyeId: 2,
+        mouthId: 9,
+        shirtId: 10,
+        accessoryId: 10,
+        bodyId: 1,
+        backgroundId: 1,
+      };
+      const fetchOption = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newAvatar),
+      };
+      return fetch("http://localhost:8088/avatars", fetchOption).then(
+        history.push("/avatars/create")
+      );
+    } else if (quizAnswers.q1 === "spooky" && quizAnswers.q2 === "scifi") {
+      const newAvatar = {
+        userId: parseInt(localStorage.getItem("gourdgeous_user")),
+        name: "My First Gourd!",
+        hatId: 19,
+        eyeId: 16,
+        mouthId: 16,
+        shirtId: 12,
+        accessoryId: 3,
+        bodyId: 1,
+        backgroundId: 1,
+      };
+      const fetchOption = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newAvatar),
+      };
+      return fetch("http://localhost:8088/avatars", fetchOption).then(
+        history.push("/avatars/create")
+      );
+    } else if (quizAnswers.q1 === "sweet" && quizAnswers.q2 === "fantasy") {
+      const newAvatar = {
+        userId: parseInt(localStorage.getItem("gourdgeous_user")),
+        name: "My First Gourd!",
+        hatId: 23,
+        eyeId: 17,
+        mouthId: 13,
+        shirtId: 13,
+        accessoryId: 11,
+        bodyId: 1,
+        backgroundId: 1,
+      };
+      const fetchOption = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newAvatar),
+      };
+      return fetch("http://localhost:8088/avatars", fetchOption).then(
+        history.push("/avatars/create")
+      );
+    } else if (quizAnswers.q1 === "sweet" && quizAnswers.q2 === "scifi") {
+      const newAvatar = {
+        userId: parseInt(localStorage.getItem("gourdgeous_user")),
+        name: "My First Gourd!",
+        hatId: 27,
+        eyeId: 13,
+        mouthId: 12,
+        shirtId: 8,
+        accessoryId: 5,
+        bodyId: 1,
+        backgroundId: 1,
+      };
+      const fetchOption = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newAvatar),
+      };
+      return fetch("http://localhost:8088/avatars", fetchOption).then(
+        history.push("/avatars/create")
+      );
+    }
+  };
+
   return (
+    //Q1: Are you spooky or sweet? ---I'm something of a skeleton, myself / Oh, I get cavities! --- "spooky / sweet"
+    //Q2: Would you rather visit a castle or a space station? ---Thine masonry doth entice me! / Oh! I have slipped the surly bonds of earth --- "fantasy / scifi"
+    //Q3: In regards to your sense of fashion... ---I care a lot! / Eh, not important --- "fashionable / unfashionable"
+    //Q4: Do you prefer summer or winter? ---I'm sweaty already and ready for more / Cold is gold, baby --- "summer / winter"
+
     <>
       <container className="quiz-form">
         <div className="question-1" ref={showNextQuestion}>
@@ -264,7 +430,7 @@ export const QuizForm = () => {
           <button
             id="try-it-button"
             onClick={() => {
-              history.push("/avatars/create");
+              tryItButton();
             }}
           >
             Try it!

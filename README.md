@@ -1,5 +1,9 @@
-<h1 align="center">Hi 👋, I'm Zach</h1>
+<h1 align="center">Hi, I'm Zach</h1>
 <h3 align="center">Programmer, Illustrator, and Designer from Tennessee</h3>
+
+- DrawSQL diagram for this project: https://drawsql.app/nss-12/diagrams/avatar-builder-app/embed
+
+- Wireframe for this project: https://www.figma.com/file/SKHL7E3X71UAjilToEdIfl/Avatar-Builder-App
 
 - 🔭 I’m currently working on [Gourdgeous](https://github.com/Semiosphere/Gourdgeous-Midterm-Capstone.git)
 

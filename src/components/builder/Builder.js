@@ -4,6 +4,8 @@ import React, { useEffect, useState, useRef } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import "./Builder.css";
 
+//AvatarForm export is the main function that renders the "create avatars" page
+
 export const AvatarForm = () => {
   //retrieving hats from database
   const [hats, setHats] = useState([]);
@@ -76,7 +78,6 @@ export const AvatarForm = () => {
   }, []);
 
   const [avatar, setAvatar] = useState({
-    //[var to hold state, var to change state]
     name: "",
     hatId: 0,
     eyeId: 0,
@@ -89,7 +90,7 @@ export const AvatarForm = () => {
 
   const { avatarId } = useParams();
 
-  //within this useEffect, don't run this fetch if no avatar.id is found
+  //function that renders the appropriate art assets based on which avatar is being edited
   useEffect(() => {
     if (avatarId) {
       fetch(`http://localhost:8088/avatars/${avatarId}`)
@@ -100,7 +101,7 @@ export const AvatarForm = () => {
 
   const history = useHistory();
 
-  //The following functions allow me to create variables that represent each feature that has been selected by the user
+  //The following functions allow me to create variables that represent each art asset that has been selected by the user
   const getHat = () => {
     const hat = hats.find((hat) => hat.id === avatar.hatId);
     return hat;
@@ -151,6 +152,7 @@ export const AvatarForm = () => {
       backgroundId: avatar.backgroundId,
     };
 
+    //this if statement determines whether or not all required information has been provided by the user to save an avatar
     if (
       newAvatar.name !== "" &&
       newAvatar.hatId !== 0 &&
@@ -175,10 +177,12 @@ export const AvatarForm = () => {
     }
   };
 
+  //when a user clicks the "clear selections" button, this function runs, reloading the page
   const clearSelections = () => {
     history.push("/avatars/create");
   };
 
+  //function to retrieve each art asset at random from the database when a user clicks the "random avatar" button
   const randomAvatarGenerator = (event) => {
     event.preventDefault();
     const randomAvatar = {
@@ -197,6 +201,7 @@ export const AvatarForm = () => {
 
   return (
     <>
+      {/* dialog box that appears when a user tries to save an avatar without completing the form */}
       <dialog className="dialog-builder" ref={allSelectedDialogue}>
         <div id="dialog-text">
           Select a feature from each category and name your Gourd!
@@ -228,6 +233,7 @@ export const AvatarForm = () => {
               src="https://res.cloudinary.com/dvdug0mzg/image/upload/v1647968032/Assets/Gourdgeous_Logo_hteo00.png"
             ></img>
           </section>
+          {/* text field representing the avatar's name as given by the user */}
           <fieldset className="item-c">
             <div className="avatar-Name">
               <input
@@ -245,7 +251,7 @@ export const AvatarForm = () => {
               />
             </div>
           </fieldset>
-
+          {/* dropdown menus representing each array of art assets */}
           <form className="item-a">
             <fieldset>
               <div className="hat-group">
@@ -419,7 +425,7 @@ export const AvatarForm = () => {
               </button>
             </div>
           </form>
-
+          {/* text field describing app function and random avatar generator button */}
           <div className="item-e">
             <h1 id="info-header">Build your very own Gourd avatar!</h1>
             <p id="info-text">
@@ -433,7 +439,6 @@ export const AvatarForm = () => {
             </button>
           </div>
         </container>
-        {/* Code below will create background art for builder page */}
       </div>
     </>
   );

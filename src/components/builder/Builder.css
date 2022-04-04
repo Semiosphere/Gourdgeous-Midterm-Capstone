@@ -5,7 +5,6 @@
   font-family: "Josefin Sans", sans-serif;
   color: aliceblue;
   text-align: center;
-  border-radius: 0px 10px 10px 0px;
 }
 
 option {
@@ -24,12 +23,36 @@ option:hover {
 
 .item-c {
   grid-area: text-Field;
-  width: 800px;
+  width: 830px;
   max-width: 100%;
+  margin-top: 20px;
 }
 
 .item-d {
   grid-area: logo;
+  margin-top: 10px;
+}
+
+.item-e {
+  grid-area: info;
+  display: flex;
+  font-family: "Josefin Sans", sans-serif;
+  color: aquamarine;
+  flex-direction: column;
+  max-height: 94%;
+  margin-top: 30%;
+  width: 88%;
+}
+
+#info-header {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#info-text {
+  margin: 12px;
+  font-size: large;
+  text-align: center;
 }
 
 input {
@@ -39,11 +62,11 @@ input {
 
 #main-Grid {
   display: grid;
-  grid-template-columns: 25% 46% 29%;
-  grid-template-rows: 10% 90%;
+  grid-template-columns: 25% 46% 27%;
+  grid-template-rows: 10% 85%;
   grid-template-areas:
     "logo text-Field ."
-    "dropdown builder .";
+    "dropdown builder info";
   grid-gap: 10px;
 }
 
@@ -110,16 +133,10 @@ input {
   border-radius: 3px;
 }
 
-#my-collection {
-  margin-left: 10px;
-}
-
 .builder-buttons {
   margin-top: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
   margin-left: 10px;
+  align-content: center;
 }
 
 button:active {
@@ -129,12 +146,14 @@ button:active {
 }
 
 #save-avatar {
-  width: 130px;
-  flex: auto;
+  height: 35px;
+  width: 80px;
+  flex-wrap: wrap;
   margin-right: 20px;
   margin-bottom: 20px;
   border: none;
   border-radius: 7px;
+  font-family: "Josefin Sans", sans-serif;
 }
 
 #save-avatar:hover {
@@ -142,38 +161,45 @@ button:active {
 }
 
 #clear-selections {
-  width: 130px;
-  flex: auto;
+  height: 35px;
+  width: 80px;
+  flex-wrap: wrap;
   margin-right: 20px;
   margin-bottom: 20px;
   border: none;
   border-radius: 7px;
+  font-family: "Josefin Sans", sans-serif;
 }
 
 #clear-selections:hover {
   background-color: tomato;
 }
 
-#random-avatar {
-  width: 130px;
-  flex: auto;
+#my-gourds {
+  height: 35px;
+  width: 80px;
+  flex-wrap: wrap;
   margin-right: 20px;
   margin-bottom: 20px;
   border: none;
   border-radius: 7px;
+  font-family: "Josefin Sans", sans-serif;
 }
 
 #random-avatar:hover {
   background-color: tomato;
 }
 
-#my-gourds {
+#random-avatar {
+  max-height: 100px;
   width: 130px;
   flex: auto;
-  margin-right: 20px;
-  margin-bottom: 20px;
+  align-self: center;
+  margin-top: 20px;
   border: none;
   border-radius: 7px;
+  font-family: "Josefin Sans", sans-seri;
+  font-size: larger;
 }
 
 #my-gourds:hover {
@@ -200,12 +226,23 @@ body {
   margin-left: 13%;
 }
 
-#builder-king {
-  width: 70%;
-  align-self: center;
-  margin-top: 10px;
+.dialog-builder {
+  height: 100px;
+  border-color: aquamarine;
+  border-radius: 10px;
+  background-color: aquamarine;
+  font-family: "Josefin Sans", sans-seri;
+  color: black;
 }
 
-.dialog-builder {
-  place-content: center;
+#dialog-text {
+  align-self: center;
+}
+
+.button--close {
+  margin-left: 38%;
+  font-family: "Josefin Sans", sans-seri;
+  width: 100px;
+  height: 30px;
+  font-size: large;
 }

@@ -12,6 +12,7 @@
 //of objects with the same property value to build a random avatar at the end of the quiz
 
 import React, { useEffect, useState, useRef } from "react";
+import { useHistory } from "react-router-dom";
 import ReactDOM from "react-dom";
 // import { useHistory, useParams } from "react-router-dom";
 import "./Quiz.css";
@@ -40,29 +41,37 @@ export const QuizForm = () => {
   const showNextQuestion3 = useRef();
   const showNextQuestion4 = useRef();
   const showButton = useRef();
+  const showSpookyFantasy = useRef();
+  const showSpookyScifi = useRef();
+  const showSweetFantasy = useRef();
+  const showSweetScifi = useRef();
+  const showGourdText = useRef();
+  const showGourdText2 = useRef();
+  const showTryItButton = useRef();
+
   //create function to display 1 question at a time
   const iterateQuestions = () => {
     if (quizAnswers.q1 !== "") {
       showNextQuestion.current.style.display = "none";
-      showNextQuestion2.current.style.display = "inline-block";
+      showNextQuestion2.current.style.display = "flex";
     }
   };
   const iterateQuestions2 = () => {
     if (quizAnswers.q2 !== "") {
       showNextQuestion2.current.style.display = "none";
-      showNextQuestion3.current.style.display = "inline-block";
+      showNextQuestion3.current.style.display = "flex";
     }
   };
   const iterateQuestions3 = () => {
     if (quizAnswers.q3 !== "") {
       showNextQuestion3.current.style.display = "none";
-      showNextQuestion4.current.style.display = "inline-block";
+      showNextQuestion4.current.style.display = "flex";
     }
   };
   const iterateQuestions4 = () => {
     if (quizAnswers.q4 !== "") {
       showNextQuestion4.current.style.display = "none";
-      showButton.current.style.display = "inline-block";
+      showButton.current.style.display = "flex";
     }
   };
 
@@ -76,23 +85,37 @@ export const QuizForm = () => {
       q4: quizAnswers.q4,
     };
 
-    const fetchOption = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(userAnswers),
-    };
-
-    return fetch("http://localhost:8088/quizAnswers", fetchOption).then((res) =>
-      res.json()
-    );
+    showButton.current.style.display = "none";
+    if (userAnswers.q1 === "spooky" && userAnswers.q2 === "fantasy") {
+      showGourdText.current.style.display = "flex";
+      showSpookyFantasy.current.style.display = "flex";
+      showGourdText2.current.style.display = "flex";
+      showTryItButton.current.style.display = "flex";
+    } else if (userAnswers.q1 === "spooky" && userAnswers.q2 === "scifi") {
+      showGourdText.current.style.display = "flex";
+      showSpookyScifi.current.style.display = "flex";
+      showGourdText2.current.style.display = "flex";
+      showTryItButton.current.style.display = "flex";
+    } else if (userAnswers.q1 === "sweet" && userAnswers.q2 === "fantasy") {
+      showGourdText.current.style.display = "flex";
+      showSweetFantasy.current.style.display = "flex";
+      showGourdText2.current.style.display = "flex";
+      showTryItButton.current.style.display = "flex";
+    } else if (userAnswers.q1 === "sweet" && userAnswers.q2 === "scifi") {
+      showGourdText.current.style.display = "flex";
+      showSweetScifi.current.style.display = "flex";
+      showGourdText2.current.style.display = "flex";
+      showTryItButton.current.style.display = "flex";
+    }
   };
+
+  const history = useHistory();
 
   return (
     <>
       <container className="quiz-form">
         <div className="question-1" ref={showNextQuestion}>
+          <h1 id="intro">Let's begin with a short quiz . . .</h1>
           <h1>Are you spooky or sweet?</h1>
           <div id="q-1-buttons">
             <button
@@ -104,7 +127,8 @@ export const QuizForm = () => {
                 iterateQuestions();
               }}
             >
-              I'm something of a skeleton, myself
+              I'm something of a <br />
+              skeleton, myself
             </button>
             <button
               id="q-1-button-2"
@@ -115,12 +139,15 @@ export const QuizForm = () => {
                 iterateQuestions();
               }}
             >
-              Oh, I get cavities!
+              I've had a cavity or two
             </button>
           </div>
         </div>
         <div className="question-2" ref={showNextQuestion2}>
-          <h1>Would you rather visit a castle or a space station?</h1>
+          <h1>
+            Would you rather visit a castle <br />
+            or a space station?
+          </h1>
           <div id="q-2-buttons">
             <button
               id="q-2-button-1"
@@ -185,7 +212,7 @@ export const QuizForm = () => {
                 iterateQuestions4();
               }}
             >
-              I'm sweaty already and ready for more
+              I'm sweaty already!
             </button>
             <button
               id="q-4-button-2"
@@ -203,6 +230,46 @@ export const QuizForm = () => {
         <div className="submit-quiz" ref={showButton}>
           <button id="submit-quiz-button" onClick={submitQuizAnswers}>
             Make my first Gourd
+          </button>
+        </div>
+        <div className="your-gourd-text" ref={showGourdText}>
+          <h2>Your first Gourd has been plucked from the patch...</h2>
+        </div>
+        <div className="spooky-fantasy" ref={showSpookyFantasy}>
+          <img
+            id="spooky-fantasy-image"
+            src="https://res.cloudinary.com/dvdug0mzg/image/upload/v1648239041/Assets/random_spooky_fantasy_unfashionable_winter_fa4pvc.png"
+          ></img>
+        </div>
+        <div className="spooky-scifi" ref={showSpookyScifi}>
+          <img
+            id="spooky-scifi-image"
+            src="https://res.cloudinary.com/dvdug0mzg/image/upload/v1648239041/Assets/random_spooky_scifi_fashionable_winter_znczlg.png"
+          ></img>
+        </div>
+        <div className="sweet-fantasy" ref={showSweetFantasy}>
+          <img
+            id="sweet-fantasy-image"
+            src="https://res.cloudinary.com/dvdug0mzg/image/upload/v1648239041/Assets/random_sweet_fantasy_unfashionable_summer_lilvdi.png"
+          ></img>
+        </div>
+        <div className="sweet-scifi" ref={showSweetScifi}>
+          <img
+            id="sweet-scifi-image"
+            src="https://res.cloudinary.com/dvdug0mzg/image/upload/v1648406376/Assets/random_sweet_scifi_fashionable_winter_frvfqg.png"
+          ></img>
+        </div>
+        <div className="your-gourd-text-2" ref={showGourdText2}>
+          <h2>Now it's time to try making one from scratch!</h2>
+        </div>
+        <div className="try-it-button" ref={showTryItButton}>
+          <button
+            id="try-it-button"
+            onClick={() => {
+              history.push("/avatars/create");
+            }}
+          >
+            Try it!
           </button>
         </div>
       </container>

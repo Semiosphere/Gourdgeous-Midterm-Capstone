@@ -1,15 +1,232 @@
+.quiz-form {
+  display: flex;
+  margin: 0 auto;
+  text-align: center;
+  font-family: "Josefin Sans", sans-serif;
+  color: aquamarine;
+  width: 50%;
+  min-height: 25rem;
+  min-width: 45rem;
+  background-color: hsla(0, 0%, 100%, 0.4);
+  background-blend-mode: overlay;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  flex-direction: column;
+  place-content: center;
+  margin-top: 6%;
+}
+
+.question-1 {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  justify-content: space-around;
+}
+
 .question-2 {
   display: none;
+  flex-direction: column;
+  height: 300px;
+  justify-content: space-around;
 }
 
 .question-3 {
   display: none;
+  flex-direction: column;
+  height: 300px;
+  justify-content: space-around;
 }
 
 .question-4 {
   display: none;
+  flex-direction: column;
+  height: 300px;
+  justify-content: space-around;
 }
 
 .submit-quiz {
   display: none;
+  justify-content: center;
+}
+
+#submit-quiz-button {
+  height: 100px;
+  width: 300px;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: larger;
+  border-radius: 15px;
+}
+
+.spooky-fantasy {
+  display: none;
+  justify-content: center;
+}
+
+.spooky-scifi {
+  display: none;
+  place-content: center;
+}
+
+.sweet-fantasy {
+  display: none;
+  place-content: center;
+}
+
+.sweet-scifi {
+  display: none;
+  place-content: center;
+}
+
+#spooky-fantasy-image {
+  width: 500px;
+  max-width: 100%;
+  padding: 20px;
+}
+
+#spooky-scifi-image {
+  width: 500px;
+  max-width: 100%;
+  padding: 20px;
+}
+
+#sweet-fantasy-image {
+  width: 500px;
+  max-width: 100%;
+  padding: 20px;
+}
+
+#sweet-scifi-image {
+  width: 500px;
+  max-width: 100%;
+  padding: 20px;
+}
+
+.your-gourd-text {
+  display: none;
+  justify-content: center;
+}
+
+.your-gourd-text-2 {
+  display: none;
+  justify-content: center;
+}
+
+.try-it-button {
+  display: none;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+#try-it-button {
+  height: 40px;
+  width: 100px;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: large;
+  border-radius: 15px;
+}
+
+#q-1-buttons {
+  justify-content: space-between;
+  justify-content: center;
+  align-content: center;
+}
+
+#q-2-buttons {
+  justify-content: space-between;
+  justify-content: center;
+  align-content: center;
+}
+
+#q-3-buttons {
+  justify-content: space-between;
+  justify-content: center;
+  align-content: center;
+}
+
+#q-4-buttons {
+  justify-content: space-between;
+  justify-content: center;
+  align-content: center;
+}
+
+#q-1-button-1 {
+  height: 100px;
+  width: 200px;
+  border-radius: 15px;
+  margin-right: 10px;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: large;
+}
+
+#q-1-button-2 {
+  height: 100px;
+  width: 200px;
+  border-radius: 15px;
+  margin-left: 10px;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: large;
+}
+
+#q-2-button-1 {
+  height: 100px;
+  width: 200px;
+  border-radius: 15px;
+  margin-right: 10px;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: large;
+}
+
+#q-2-button-2 {
+  height: 100px;
+  width: 200px;
+  border-radius: 15px;
+  margin-left: 10px;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: large;
+}
+
+#q-3-button-1 {
+  height: 100px;
+  width: 200px;
+  border-radius: 15px;
+  margin-right: 10px;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: large;
+}
+
+#q-3-button-2 {
+  height: 100px;
+  width: 200px;
+  border-radius: 15px;
+  margin-left: 10px;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: large;
+}
+
+#q-4-button-1 {
+  height: 100px;
+  width: 200px;
+  border-radius: 15px;
+  margin-right: 10px;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: large;
+}
+
+#q-4-button-2 {
+  height: 100px;
+  width: 200px;
+  border-radius: 15px;
+  margin-left: 10px;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: large;
+}
+
+.alert-shown {
+  opacity: 1;
+  transition: all 250ms linear;
+}
+
+.alert-hidden {
+  opacity: 0;
+  transition: all 250ms linear 2s;
 }

@@ -4,8 +4,6 @@
 
 //The user will be routed to this page after creating a new account
 
-//This quiz can be re-taken by clicking on a link from the builder page
-
 //Users will answer 4 questions by selecting the appropriate button. Each answer will be the value of a property
 //that is stored in an object and saved to the api. Each art object has a property
 //corresponding with the question answers and will be chosen randomly from the pool

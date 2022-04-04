@@ -18,76 +18,6 @@ import { useHistory } from "react-router-dom";
 import "./Quiz.css";
 
 export const QuizForm = () => {
-  //retrieving hats from database
-  const [hats, setHats] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:8088/hats")
-      .then((res) => res.json())
-      .then((hatArray) => {
-        setHats(hatArray);
-      });
-  }, []);
-
-  //retrieving eyes from database
-  const [eyes, setEyes] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:8088/eyes")
-      .then((res) => res.json())
-      .then((eyeArray) => {
-        setEyes(eyeArray);
-      });
-  }, []);
-
-  //retrieving mouths from database
-  const [mouths, setMouths] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:8088/mouths")
-      .then((res) => res.json())
-      .then((mouthArray) => {
-        setMouths(mouthArray);
-      });
-  }, []);
-
-  //retrieving shirts from database
-  const [shirts, setShirts] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:8088/shirts")
-      .then((res) => res.json())
-      .then((shirtArray) => {
-        setShirts(shirtArray);
-      });
-  }, []);
-
-  //retrieving accessories from database
-  const [accessories, setAccessories] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:8088/accessories")
-      .then((res) => res.json())
-      .then((accessoryArray) => {
-        setAccessories(accessoryArray);
-      });
-  }, []);
-
-  //retrieving bodies from database
-  const [bodies, setBodies] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:8088/bodies")
-      .then((res) => res.json())
-      .then((bodyArray) => {
-        setBodies(bodyArray);
-      });
-  }, []);
-
-  //retrieving backgrounds from database
-  const [backgrounds, setBackgrounds] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:8088/backgrounds")
-      .then((res) => res.json())
-      .then((backgroundArray) => {
-        setBackgrounds(backgroundArray);
-      });
-  }, []);
-
   const [quizAnswers, setQuizAnswers] = useState({
     q1: "",
     q2: "",
@@ -150,6 +80,7 @@ export const QuizForm = () => {
       q4: quizAnswers.q4,
     };
 
+    //The following if statements determine which question is currently rendered in the dom
     showButton.current.style.display = "none";
     if (userAnswers.q1 === "spooky" && userAnswers.q2 === "fantasy") {
       showGourdText.current.style.display = "flex";
